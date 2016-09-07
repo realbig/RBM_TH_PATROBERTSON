@@ -1,0 +1,14 @@
+{
+    "name": "patricia_robertson",
+    "version": "1.0.0",
+    "dependencies": {
+        "foundation-sites": "~6.2.0",
+        "motion-ui": "~1.2.2"
+    },
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components"
+    ],
+    "private": true
+}
