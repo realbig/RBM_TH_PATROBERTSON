@@ -1,9 +1,18 @@
 javascript:
   dest:
-    root: "."
+    root: "./assets/js/"
   front:
     vendor:
-      - ""
+      - "bower_components/foundation-sites/js/foundation.core.js"
+      - "bower_components/foundation-sites/js/foundation.util.keyboard.js"
+      - "bower_components/foundation-sites/js/foundation.util.box.js"
+      - "bower_components/foundation-sites/js/foundation.util.nest.js"
+      - "bower_components/foundation-sites/js/foundation.util.mediaQuery.js"
+      - "bower_components/foundation-sites/js/foundation.util.triggers.js"
+      - "bower_components/foundation-sites/js/foundation.util.motion.js"
+      - "bower_components/foundation-sites/js/foundation.dropdownMenu.js"
+      - "bower_components/foundation-sites/js/foundation.offcanvas.js"
+      - "bower_components/foundation-sites/js/foundation.sticky.js"
     # filename to output
     filename: "script.js"
     notification: "Running JavaScript"
@@ -16,7 +25,7 @@ javascript:
       - "!build/js/tinymce/**/*.js"
   admin:
     vendor:
-        - "bower_components/jquery.repeater/jquery.repeater.min.js"
+        - ""
     filename: "admin.js"
     notification: "Running Admin JavaScript"
     src:
@@ -32,13 +41,17 @@ sass:
   compatibility:
     - "last 2 versions"
     - "ie >= 9"
-  dest:
-    root: "."
   front:
+    root: "."
+    vendor:
+      - "bower_components/foundation-sites/scss"
     filename: "style.css"
     notification: "Running Sass"
     src: "build/sass/main.scss"
   admin:
+    root: "./assets/css/"
+    vendor:
+      - ""
     filename: "admin.css"
     notification: "Running Admin Sass"
     src: "build/sass/admin/main.scss"

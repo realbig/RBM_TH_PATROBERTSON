@@ -10,7 +10,7 @@ var onError       = notify.onError( {
    message:  '<%= error.name %> <%= error.message %>'   
 } );
 
-gulp.task( 'front-uglify', function() {
+gulp.task( 'uglify:front', function() {
 
     return gulp.src( config.front.src )
         .pipe( $.plumber( { errorHandler: onError } ) )
@@ -28,7 +28,7 @@ gulp.task( 'front-uglify', function() {
 
 } );
 
-gulp.task( 'admin-uglify', function() {
+gulp.task( 'uglify:admin', function() {
 
     return gulp.src( config.admin.bowerPaths.concat( config.admin.src ) )
         .pipe( $.plumber( { errorHandler: onError } ) )
@@ -46,7 +46,7 @@ gulp.task( 'admin-uglify', function() {
 
 } );
 
-gulp.task( 'tinymce-uglify', function() {
+gulp.task( 'uglify:tinymce', function() {
 
     return gulp.src( config.tinymce.src )
         .pipe( foreach( function( stream, file ) {
@@ -64,5 +64,5 @@ gulp.task( 'tinymce-uglify', function() {
 
 } );
 
-gulp.task( 'uglify', ['front-uglify', 'admin-uglify', 'tinymce-uglify'], function( done ) {
+gulp.task( 'uglify', ['uglify:front', 'uglify:admin', 'uglify:tinymce'], function( done ) {
 } );
