@@ -12,10 +12,12 @@ var onError       = notify.onError( {
 
 gulp.task( 'uglify:front', function() {
 
-    return gulp.src( config.front.src )
+    return gulp.src( config.front.vendor.concat( config.front.src ) )
         .pipe( $.plumber( { errorHandler: onError } ) )
         .pipe( $.sourcemaps.init() )
-        .pipe( $.babel() )
+        .pipe( $.babel( {
+            presets: ['es2015'] // Gulp-uglify has no official support for ECMAScript 2015 (aka ES6, aka Harmony), so we'll transpile to EcmaScript5
+        } ) )
         .pipe( $.concat( config.front.filename ) )
         .pipe( $.uglify() )
         .pipe( $.sourcemaps.write( '.' ) )
@@ -30,10 +32,12 @@ gulp.task( 'uglify:front', function() {
 
 gulp.task( 'uglify:admin', function() {
 
-    return gulp.src( config.admin.bowerPaths.concat( config.admin.src ) )
+    return gulp.src( config.admin.vendor.concat( config.admin.src ) )
         .pipe( $.plumber( { errorHandler: onError } ) )
         .pipe( $.sourcemaps.init() )
-        .pipe( $.babel() )
+        .pipe( $.babel( {
+            presets: ['es2015'] // Gulp-uglify has no official support for ECMAScript 2015 (aka ES6, aka Harmony), so we'll transpile to EcmaScript5
+        } ) )
         .pipe( $.concat( config.admin.filename ) )
         .pipe( $.uglify() )
         .pipe( $.sourcemaps.write( '.' ) )
@@ -65,4 +69,5 @@ gulp.task( 'uglify:tinymce', function() {
 } );
 
 gulp.task( 'uglify', ['uglify:front', 'uglify:admin', 'uglify:tinymce'], function( done ) {
+    done();
 } );

@@ -59,4 +59,5 @@ gulp.task( 'sass:admin', function() {
 } );
 
 gulp.task( 'sass', ['sass:front', 'sass:admin'], function( done ) {
+    done();
 } );

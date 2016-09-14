@@ -41,8 +41,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                     'container' => false,
                     'menu' => __( 'Primary Menu', THEME_ID ),
                     'menu_class' => 'menu',
-                    'theme_location' => 'primary-nav',
-                    'items_wrap'      => '<ul id="%1$s" class="vertical %2$s">%3$s</ul>',
+                    'theme_location' => 'primary',
+                    'items_wrap' => '<ul id="%1$s" class="vertical %2$s">%3$s</ul>',
                     'fallback_cb' => false,
                     'walker' => new Foundation_Nav_Walker(),
                 ) );
@@ -64,10 +64,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                             
                             <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
                             <?php 
-                                echo wp_get_attachment_image( get_theme_mod( 'als_logo_image', 1 ), 'medium', false, array(
-                                    'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
-                                    'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
-                                ) ); 
+                                //echo wp_get_attachment_image( get_theme_mod( 'als_logo_image', 1 ), 'medium', false, array(
+                                //    'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+                                //    'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+                                //) ); 
                             ?>
                            </a>
 
