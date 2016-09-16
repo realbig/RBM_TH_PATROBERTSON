@@ -63,6 +63,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             </span>
                             
                             <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
+                            <?php echo bloginfo( 'name' ); ?>
                             <?php 
                                 //echo wp_get_attachment_image( get_theme_mod( 'als_logo_image', 1 ), 'medium', false, array(
                                 //    'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
@@ -79,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 'container' => false,
                                 'menu' => __( 'Primary Menu', THEME_ID ),
                                 'menu_class' => 'dropdown menu',
-                                'theme_location' => 'primary-nav',
+                                'theme_location' => 'primary',
                                 'items_wrap'      => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
                                 'fallback_cb' => false,
                                 'walker' => new Foundation_Nav_Walker(),

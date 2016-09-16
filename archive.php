@@ -22,9 +22,11 @@ get_header();
 the_archive_description( '<div class="taxonomy-description columns small-12">', '</div>' );
 ?>
 
-<?php if ( have_posts() ) : 
+<?php if ( have_posts() ) : ?>
 
-    while ( have_posts() ) :
+    <div class="row">
+
+    <?php while ( have_posts() ) :
         the_post();
         ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class( array(
@@ -32,11 +34,11 @@ the_archive_description( '<div class="taxonomy-description columns small-12">', 
             'small-12'
         ) ); ?>>
 
-            <h2 class="post-title">
+            <h1 class="post-title">
                 <a href="<?php the_permalink(); ?>">
                     <?php the_title(); ?>
                 </a>
-            </h2>
+            </h1>
 
             <?php the_excerpt(); ?>
 
@@ -46,21 +48,31 @@ the_archive_description( '<div class="taxonomy-description columns small-12">', 
 
         </article>
     <?php endwhile; ?>
+        
+    </div>
 
-    <div class="columns small-12">
-    <?php
-        the_posts_pagination( array(
-            'prev_text'          => _x( 'Previous Page', 'Previous Page Pagination Text', THEME_ID ),
-            'next_text'          => _x( 'Next Page', 'Next Page Pagination Text', THEME_ID ),
-            'before_page_number' => '<span class="meta-nav screen-reader-text">' . _x( 'Page', 'Page Screen Reader Text', THEME_ID ) . ' </span>',
-        ) );
-        ?>
+    <div class="row">
+
+        <div class="columns small-12">
+        <?php
+            the_posts_pagination( array(
+                'prev_text'          => _x( 'Previous Page', 'Previous Page Pagination Text', THEME_ID ),
+                'next_text'          => _x( 'Next Page', 'Next Page Pagination Text', THEME_ID ),
+                'before_page_number' => '<span class="meta-nav screen-reader-text">' . _x( 'Page', 'Page Screen Reader Text', THEME_ID ) . ' </span>',
+            ) );
+            ?>
+        </div>
+        
     </div>
 
 <?php else: ?>
 
-    <div class="columns small-12">
-        <?php echo _x( 'Nothing found, sorry!', 'No Posts Found Text', THEME_ID ); ?>
+    <div class="row">
+
+        <div class="columns small-12">
+            <?php echo _x( 'Nothing found, sorry!', 'No Posts Found Text', THEME_ID ); ?>
+        </div>
+        
     </div>
 
 <?php endif; ?>

@@ -1,6 +1,6 @@
 // We use these as default colors throughout
 $primary-color: #d1671f;
-$secondary-color: #f4f1ef;
+$secondary-color: #a0d3e8; // Copy of Info Color for now
 $alert-color: #f04124;
 $success-color: #43AC6A;
 $warning-color: #f08a24;
@@ -19,6 +19,8 @@ $foundation-palette: (
 $dark-color: #333;
 $light-color: #ddd;
 
+$body-background: #f4f1ef;
+
 // We use these to define default font stacks
 $font-family-sans-serif: "Open Sans", sans-serif;
 $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
@@ -26,11 +28,13 @@ $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 $body-font-color: #222;
 $body-font-family: $font-family-sans-serif;
 $body-antialiased: false;
+$anchor-color: scale-color( $primary-color, $lightness: -15% );
+$anchor-color-hover: scale-color( $anchor-color, $lightness: -25% );
 
 // We use these to control header font styles
 $header-font-family: "Open Sans", sans-serif;
 
-$topbar-background: $black;
+$topbar-background: $primary-color;
 $offcanvas-background: $topbar-background;
 
 $topbar-link-color: null;

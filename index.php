@@ -14,9 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<?php if ( have_posts() ) : 
+<?php if ( have_posts() ) : ?>
 
-    while ( have_posts() ) :
+    <div class="row">
+
+    <?php while ( have_posts() ) :
         the_post();
         ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class( array(
@@ -38,21 +40,31 @@ get_header();
 
         </article>
     <?php endwhile; ?>
+        
+    </div>
 
-    <div class="columns small-12">
-    <?php
-        the_posts_pagination( array(
-            'prev_text'          => _x( 'Previous Page', 'Previous Page Pagination Text', THEME_ID ),
-            'next_text'          => _x( 'Next Page', 'Next Page Pagination Text', THEME_ID ),
-            'before_page_number' => '<span class="meta-nav screen-reader-text">' . _x( 'Page', 'Page Screen Reader Text', THEME_ID ) . ' </span>',
-        ) );
-        ?>
+    <div class="row">
+
+        <div class="columns small-12">
+        <?php
+            the_posts_pagination( array(
+                'prev_text'          => _x( 'Previous Page', 'Previous Page Pagination Text', THEME_ID ),
+                'next_text'          => _x( 'Next Page', 'Next Page Pagination Text', THEME_ID ),
+                'before_page_number' => '<span class="meta-nav screen-reader-text">' . _x( 'Page', 'Page Screen Reader Text', THEME_ID ) . ' </span>',
+            ) );
+            ?>
+        </div>
+        
     </div>
 
 <?php else: ?>
 
-    <div class="columns small-12">
-        <?php echo _x( 'Nothing found, sorry!', 'No Posts Found Text', THEME_ID ); ?>
+    <div class="row">
+
+        <div class="columns small-12">
+            <?php echo _x( 'Nothing found, sorry!', 'No Posts Found Text', THEME_ID ); ?>
+        </div>
+        
     </div>
 
 <?php endif; ?>

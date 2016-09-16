@@ -101,3 +101,32 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
     }
 
 }
+
+// I don't know why this is a Foundation Default. In some locations it makes sense, but people expect links to be underlined.
+#site-content, footer {
+    
+    a:not(.button) {
+
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+        
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        a {
+            text-decoration: none !important;
+        }
+    }
+    
+}
+
+
+// Catch-all for WP Search Fields and stuff
+input[type="submit"] {
+    
+    @include button( false, $primary-color, scale-color( $primary-color, -15% ), 'auto', 'solid' );
+    
+}
