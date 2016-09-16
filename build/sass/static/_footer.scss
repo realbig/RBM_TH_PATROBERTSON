@@ -1,0 +1,54 @@
+footer {
+    
+    background-color: $primary-color;
+    color: $secondary-color;
+    
+    // Base Padding on Column Gutters for a consistent feel
+    $small-padding: map-get( $grid-column-gutter, 'small' );
+    $medium-padding: map-get( $grid-column-gutter, 'medium' );
+    
+    padding: $small-padding;
+    
+    @media #{$medium-up} {
+        padding: $medium-padding;   
+    }
+    
+    a {
+        
+        color: $secondary-color;
+        
+        &:hover {
+            color: scale-color( $secondary-color, $lightness: -15% );
+        }
+        
+    }
+    
+    .widget_nav_menu {
+        
+        .menu {
+            
+            list-style: none;
+            margin-bottom: 0;
+            
+            li {
+                
+                margin-bottom: 0.5em;
+                
+                &:last-of-type {
+                    margin-bottom: 0;   
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    // Different styling for Submit buttons in the Footer. Just in case it ever happens
+    input[type="submit"] {
+    
+        @include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
+
+    }
+    
+}

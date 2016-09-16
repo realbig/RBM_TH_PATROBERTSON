@@ -42,24 +42,20 @@ section {
 }
 
 #site-content {
+    
     height: 100%;
     background-color: $body-background;
-}
-
-.page-content {
-    padding: 30px;
-}
-
-.admin-bar {
-    #site-content {
-        
-        @media #{$small-only} {
-            
-            padding-top: 160px;
-            
-        }
-        
+    
+    // Base Padding on Column Gutters for a consistent feel
+    $small-padding: map-get( $grid-column-gutter, 'small' );
+    $medium-padding: map-get( $grid-column-gutter, 'medium' );
+    
+    padding: $small-padding;
+    
+    @media #{$medium-up} {
+        padding: $medium-padding;   
     }
+    
 }
 
 img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" button
@@ -127,6 +123,6 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
 // Catch-all for WP Search Fields and stuff
 input[type="submit"] {
     
-    @include button( false, $primary-color, scale-color( $primary-color, -15% ), 'auto', 'solid' );
+    @include button( false, $primary-color, scale-color( $primary-color, $lightness: -15% ), 'auto', 'solid' );
     
 }
