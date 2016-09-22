@@ -72,8 +72,6 @@ function pat_add_home_metaboxes() {
     global $home_page;
     
     if ( $post->ID == $home_page ) {
-    
-        add_filter( 'rbm_load_select2', '__return_true' );
 
         add_meta_box(
             'pat-home-about',

@@ -13,3 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Require files
 require_once __DIR__ . '/extra-meta/home.php';
+
+require_once __DIR__ . '/post-types/pat-books.php';
+require_once __DIR__ . '/post-types/pat-testimonials.php';
+require_once __DIR__ . '/post-types/post.php';
