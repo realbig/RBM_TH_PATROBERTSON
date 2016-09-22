@@ -21,6 +21,7 @@ class RBM_CPT_Pat_Books extends RBM_CPT {
     public $post_args = array(
         'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
         'menu_position' => 20,
+        'has_archive' => true,
         'rewrite' => array(
             'slug' => 'books',
             'with_front' => false,
@@ -47,3 +48,34 @@ class RBM_CPT_Pat_Books extends RBM_CPT {
 }
 
 $pat_books = new RBM_CPT_Pat_Books();
+
+
+
+/**
+ * Force 404 on Single Templates that should be redirecting to Amazon
+ * 
+ * @param       string $template Path to Template File
+ *                                                
+ * @since       1.0.0
+ * @return      string Modified Template File Path
+ */
+function pat_books_force_404( $template ) {
+    
+    global $wp_query;
+    global $post;
+    
+    if ( is_single() && get_post_type() == 'pat-books' ) {
+        
+        if ( $amazon_link = get_post_meta( $post->ID, '_rbm_pat_books_amazon_link', true ) ) {
+            
+            $wp_query->set_404();
+            
+            return get_query_template( '404' );
+            
+        }
+        
+    }
+    
+    return $template;
+    
+}

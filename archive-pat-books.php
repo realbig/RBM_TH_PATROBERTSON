@@ -1,6 +1,6 @@
 <?php
 /**
- * Displays latest blog posts.
+ * Displays Books Archive.
  *
  * @since   1.0.0
  * @package PatRobertson
@@ -12,9 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Load any post-type specific hooks, if they exist
-locate_template( '/includes/hooks/' . get_post_type() . '-hooks.php', true, true );
+locate_template( '/includes/hooks/pat-books-hooks.php', true, true );
 
 get_header();
+
+$site_url = get_bloginfo( 'url' );
 
 ?>
 
@@ -32,6 +34,7 @@ the_archive_description( '<div class="taxonomy-description columns small-12">', 
 
     <?php while ( have_posts() ) :
         the_post();
+        $permalink = get_permalink();
         ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class( array(
             'columns',
@@ -39,14 +42,14 @@ the_archive_description( '<div class="taxonomy-description columns small-12">', 
         ) ); ?>>
 
             <h1 class="post-title">
-                <a href="<?php the_permalink(); ?>">
+                <a href="<?php the_permalink(); ?>"<?php echo ( strpos( $permalink, $site_url ) === false ) ? ' target="_blank"' : ''; ?>>
                     <?php the_title(); ?>
                 </a>
             </h1>
 
             <?php the_excerpt(); ?>
 
-            <a href="<?php the_permalink(); ?>" class="button primary">
+            <a href="<?php the_permalink(); ?>" class="button primary"<?php echo ( strpos( $permalink, $site_url ) === false ) ? ' target="_blank"' : ''; ?>>
                 <?php echo _x( 'Read More', 'Read More Text', THEME_ID ); ?>
             </a>
 
