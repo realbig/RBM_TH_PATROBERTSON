@@ -49,9 +49,15 @@ the_archive_description( '<div class="taxonomy-description columns small-12">', 
 
             <?php the_excerpt(); ?>
 
-            <a href="<?php the_permalink(); ?>" class="button primary"<?php echo ( strpos( $permalink, $site_url ) === false ) ? ' target="_blank"' : ''; ?>>
-                <?php echo _x( 'Read More', 'Read More Text', THEME_ID ); ?>
-            </a>
+            <?php if ( strpos( $permalink, $site_url ) === false ) : ?>
+                <a href="<?php the_permalink(); ?>" class="button primary" target="_blank">
+                    <?php echo _x( 'Buy on Amazon', 'Amazon Link Text', THEME_ID ); ?>
+                </a>
+            <?php else : ?>
+                <a href="<?php the_permalink(); ?>" class="button primary">
+                    <?php echo _x( 'Read More', 'Read More Text', THEME_ID ); ?>
+                </a>
+            <?php endif; ?>
 
         </article>
     <?php endwhile; ?>
