@@ -188,3 +188,5 @@ add_filter( 'oembed_dataparse', function( $return, $data, $url ) {
     return $return;
     
 }, 10, 3 );
+
+require_once __DIR__ . '/admin/admin.php';
