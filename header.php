@@ -23,8 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
         <!--[if lt IE 9]>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/build/vendor/js/html5.js"></script>
-<![endif]-->
+            <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/vendor/js/html5.js"></script>
+        <![endif]-->
 
         <?php wp_head(); ?>
 
@@ -63,7 +63,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             </span>
                             
                             <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
-                            <?php echo bloginfo( 'name' ); ?>
+                            <?php bloginfo( 'name' ); ?>
                             <?php 
                                 //echo wp_get_attachment_image( get_theme_mod( 'als_logo_image', 1 ), 'medium', false, array(
                                 //    'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),

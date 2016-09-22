@@ -11,27 +11,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
+// Load any post-type specific hooks, if they exist
+locate_template( '/includes/hooks/' . get_post_type() . '-hooks.php', true, true );
+
 get_header();
 
 the_post();
 ?>
 
-<article id="page-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
+<div class="row">
 
-    <h1 class="page-title">
-        <?php the_title(); ?>
-    </h1>
+    <article id="page-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
 
-    <?php the_content(); ?>
+        <h1 class="page-title">
+            <?php the_title(); ?>
+        </h1>
 
-</article>
+        <?php the_content(); ?>
 
-<?php if ( comments_open() ) : ?>
+    </article>
 
-<div class="columns small-12">
-    <?php comments_template(); ?>
+    <?php if ( comments_open() ) : ?>
+
+    <div class="columns small-12">
+        <?php comments_template(); ?>
+    </div>
+
+    <?php endif; ?>
+    
 </div>
 
-<?php endif;
-
-get_footer();
+<?php get_footer();

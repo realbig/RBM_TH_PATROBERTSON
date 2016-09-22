@@ -14,17 +14,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 the_post();
-?>	
+?>
 
-<article id="page-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
+<div class="row">
 
-    <h1 class="page-title">
-        <?php the_title(); ?>
-    </h1>
+    <article id="page-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
 
-    <?php the_content(); ?>
+        <h1 class="page-title">
+            <?php the_title(); ?>
+        </h1>
 
-</article>
+        <?php the_content(); ?>
+
+    </article>
+    
+</div>
 
 <?php
 get_footer();
