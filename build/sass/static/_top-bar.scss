@@ -1,6 +1,5 @@
 .top-bar {
     
-    font-family: $header-font-family;
     font-weight: 600;
     position: relative;
     
@@ -13,6 +12,36 @@
         
         .hide-for-small-only {
             display: none;
+        }
+        
+    }
+    
+    .top-bar-title {
+        
+        font-family: $header-font-family;
+        
+        a {
+            
+            color: $topbar-link-color;
+            
+            padding: $menu-item-padding;
+            font-size: rem-calc( map-get-deep( $header-sizes, 'small', 'h2' ) );
+            
+            // This font has crazy descenders. This makes it look more vertically centered than could be done otherwise
+            position: relative;
+            bottom: -0.1em;
+            
+            @media #{$medium-up} {
+                
+                font-size: rem-calc( map-get-deep( $header-sizes, 'medium', 'h2' ) );
+                
+            }
+
+            &:hover {
+                background-color: lighten( $topbar-background, 5% ) !important;
+                @include light-or-dark-text( lighten( $topbar-background, 5% ) );
+            }
+            
         }
         
     }

@@ -23,3 +23,14 @@
     background: $color; /* The fallback for ancient things */
     background: rgba( $color, $opacity );
 }
+
+// map-get down multiple levels without making nested map-gets manually
+@function map-get-deep( $map, $keys... ) {
+    
+    @each $key in $keys {
+        $map: map-get( $map, $key );
+    }
+    
+    @return $map;
+    
+}

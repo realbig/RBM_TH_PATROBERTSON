@@ -41,6 +41,7 @@ add_action( 'init', function() {
  */
 $theme_fonts = array(
 	'open-sans' => '//fonts.googleapis.com/css?family=Open+Sans:300italic,700,300,800',
+    'satisfy' => '//fonts.googleapis.com/css?family=Satisfy',
     'font-awesome' => '//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css',
 );
 

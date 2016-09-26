@@ -32,7 +32,7 @@ $anchor-color: scale-color( $primary-color, $lightness: -15% );
 $anchor-color-hover: scale-color( $anchor-color, $lightness: -25% );
 
 // We use these to control header font styles
-$header-font-family: "Open Sans", sans-serif;
+$header-font-family: 'Satisfy', cursive;
 
 $topbar-background: $primary-color;
 $offcanvas-background: $topbar-background;
@@ -41,13 +41,17 @@ $topbar-link-color: null;
 @if lightness( $topbar-background ) < 50% {
 
     $topbar-link-color: $light-color;
+    $titlebar-icon-color: $topbar-link-color;
 
 }
 @else {
 
     $topbar-link-color: $black;
+    $titlebar-icon-color: $topbar-link-color;
 
 }
+
+$titlebar-icon-hover: scale-color( $titlebar-icon-color, $lightness: -25% );
 
 // Media query ranges
 $small-range: (0em, 40em);
