@@ -222,7 +222,7 @@ function pat_customize_register( $wp_customize ) {
     ) ) );
     
     $wp_customize->add_setting( 'pat_header_text', array(
-            'default' => _x( 'Unlocking the Extraordinary <br />from the Everyday', 'Default Customizer Header Text', THEME_ID ),
+            'default' => _x( '<h1>Unlocking the Extraordinary <br />from the Everyday</h1>', 'Default Customizer Header Text', THEME_ID ),
             'transport' => 'refresh',
         )
     );

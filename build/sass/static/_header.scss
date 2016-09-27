@@ -1,0 +1,35 @@
+#site-header {
+    
+    .header-logo {
+        
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        
+        min-height: 689px;
+        min-height: 90vh;
+        
+        h1, h2, h3, h4, h5, h6, p {
+            
+            color: #fff;
+            text-shadow: 0.03em 0.03em 0.03em $dark-gray;
+            
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+            
+        }
+        
+        .header-content {
+            
+            text-align: right;
+            
+            position: absolute;
+            top: 8%;
+            left: 20%;
+            
+        }
+        
+    }
+    
+}
