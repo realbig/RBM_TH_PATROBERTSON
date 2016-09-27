@@ -1,6 +1,6 @@
 footer {
 
-    background-color: $primary-color;
+    @include create-gradient( 'vertical', $primary-color, #C9580B );
     color: $secondary-color;
 
     // Base Padding on Column Gutters for a consistent feel

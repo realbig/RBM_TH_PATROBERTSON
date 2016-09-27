@@ -1,5 +1,7 @@
 .top-bar {
     
+    @include create-gradient( 'horizontal', #C9580B, $primary-color );
+    
     font-weight: 600;
     position: relative;
     
@@ -61,6 +63,8 @@
         }
 
         > .dropdown.menu {
+            
+            background: transparent;
 
             > .current-menu-item, > .current-menu-ancestor {
 
