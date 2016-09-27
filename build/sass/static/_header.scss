@@ -1,35 +1,63 @@
 #site-header {
-    
+
     .header-logo {
-        
+
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         
-        min-height: 689px;
-        min-height: 90vh;
+        min-height: 198px;
+        min-height: 30vh;
         
+        // Base Padding on Column Gutters for a consistent feel
+        $small-padding: map-get( $grid-column-gutter, 'small' );
+        $medium-padding: map-get( $grid-column-gutter, 'medium' );
+        
+        padding: $small-padding;
+
+        @media #{$medium-up} {
+            padding: $medium-padding;   
+        }
+
         h1, h2, h3, h4, h5, h6, p {
-            
+
             color: #fff;
             text-shadow: 0.03em 0.03em 0.03em $dark-gray;
-            
+
             &:last-of-type {
                 margin-bottom: 0;
             }
-            
+
         }
-        
+
         .header-content {
-            
-            text-align: right;
-            
+
+            text-align: center;
+
             position: absolute;
-            top: 8%;
-            left: 20%;
-            
+            top: 4%;
+            left: 0;
+            right: 0;
+
         }
-        
+
+        @media #{$medium-up} {
+
+            min-height: 689px;
+            min-height: 90vh;
+
+            .header-content {
+                
+                text-align: right;
+
+                top: 8%;
+                left: 20%;
+                right: auto;
+
+            }
+
+        }
+
     }
-    
+
 }
