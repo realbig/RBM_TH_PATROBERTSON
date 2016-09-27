@@ -209,38 +209,38 @@ function pat_customize_register( $wp_customize ) {
         ) 
     );
     
-    $wp_customize->add_setting( 'pat_header_image_settings', array(
+    $wp_customize->add_setting( 'pat_header_image', array(
             'default' => 1,
             'transport' => 'refresh',
         ) 
     );
-    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'pat_header_image', array(
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'pat_header_image_settings', array(
         'label' => _x( 'Header Image', 'Header Image Customizer Label', THEME_ID ),
         'section' => 'pat_customizer_section',
-        'settings' => 'pat_header_image_settings',
+        'settings' => 'pat_header_image',
         'mime_type' => 'image',
     ) ) );
     
-    $wp_customize->add_setting( 'pat_header_text_settings', array(
+    $wp_customize->add_setting( 'pat_header_text', array(
             'default' => _x( 'Unlocking the Extraordinary <br />from the Everyday', 'Default Customizer Header Text', THEME_ID ),
             'transport' => 'refresh',
         )
     );
-    $wp_customize->add_control( new Text_Editor_Custom_Control( $wp_customize, 'pat_header_text', array(
+    $wp_customize->add_control( new Text_Editor_Custom_Control( $wp_customize, 'pat_header_text_settings', array(
         'label' => _x( 'Header Text', 'Header Text Customizer Label', THEME_ID ),
         'section' => 'pat_customizer_section',
-        'settings' => 'pat_header_text_settings',
+        'settings' => 'pat_header_text',
     ) ) );
     
-    $wp_customize->add_setting( 'pat_footer_image_settings', array(
+    $wp_customize->add_setting( 'pat_footer_image', array(
             'default' => 1,
             'transport' => 'refresh',
         ) 
     );
-    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'pat_footer_image', array(
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'pat_footer_image_settings', array(
         'label' => _x( 'Footer Image', 'Footer Image Customizer Label', THEME_ID ),
         'section' => 'pat_customizer_section',
-        'settings' => 'pat_footer_image_settings',
+        'settings' => 'pat_footer_image',
         'mime_type' => 'image',
     ) ) );
     
@@ -249,10 +249,10 @@ function pat_customize_register( $wp_customize ) {
             'transport' => 'refresh',
         )
     );
-    $wp_customize->add_control( new Text_Editor_Custom_Control( $wp_customize, 'pat_footer_text', array(
+    $wp_customize->add_control( new Text_Editor_Custom_Control( $wp_customize, 'pat_footer_text_settings', array(
         'label' => _x( 'Footer Text', 'Footer Text Customizer Label', THEME_ID ),
         'section' => 'pat_customizer_section',
-        'settings' => 'pat_footer_text_settings',
+        'settings' => 'pat_footer_text',
     ) ) );
     
 }
