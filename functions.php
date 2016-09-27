@@ -163,6 +163,9 @@ add_action( 'after_setup_theme', function () {
 
     // Nav Walker for Foundation
     require_once __DIR__ . '/includes/class-foundation-nav-walker.php';
+    
+    // Add Customizer Controls
+    add_action( 'customize_register', 'pat_customize_register' );
 
     // Allow shortcodes in text widget
     add_filter( 'widget_text', 'do_shortcode' );
@@ -189,5 +192,69 @@ add_filter( 'oembed_dataparse', function( $return, $data, $url ) {
     return $return;
     
 }, 10, 3 );
+
+/**
+ * Adds custom Customizer Controls.
+ *
+ * @since 0.1.0
+ */
+function pat_customize_register( $wp_customize ) {
+    
+    require_once __DIR__ . '/includes/customizer/class-text-editor-custom-control.php';
+    
+    // General Theme Options
+    $wp_customize->add_section( 'pat_customizer_section' , array(
+            'title'      => _x( 'Pat Robertson Settings', 'Customizer Section Label', THEME_ID ),
+            'priority'   => 30,
+        ) 
+    );
+    
+    $wp_customize->add_setting( 'pat_header_image_settings', array(
+            'default' => 1,
+            'transport' => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'pat_header_image', array(
+        'label' => _x( 'Header Image', 'Header Image Customizer Label', THEME_ID ),
+        'section' => 'pat_customizer_section',
+        'settings' => 'pat_header_image_settings',
+        'mime_type' => 'image',
+    ) ) );
+    
+    $wp_customize->add_setting( 'pat_header_text_settings', array(
+            'default' => _x( 'Unlocking the Extraordinary <br />from the Everyday', 'Default Customizer Header Text', THEME_ID ),
+            'transport' => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new Text_Editor_Custom_Control( $wp_customize, 'pat_header_text', array(
+        'label' => _x( 'Header Text', 'Header Text Customizer Label', THEME_ID ),
+        'section' => 'pat_customizer_section',
+        'settings' => 'pat_header_text_settings',
+    ) ) );
+    
+    $wp_customize->add_setting( 'pat_footer_image_settings', array(
+            'default' => 1,
+            'transport' => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'pat_footer_image', array(
+        'label' => _x( 'Footer Image', 'Footer Image Customizer Label', THEME_ID ),
+        'section' => 'pat_customizer_section',
+        'settings' => 'pat_footer_image_settings',
+        'mime_type' => 'image',
+    ) ) );
+    
+    $wp_customize->add_setting( 'pat_footer_text_settings', array(
+            'default' =>  _x( 'When life knocks you down <br />get up and dance!', 'Default Customizer Header Text', THEME_ID ),
+            'transport' => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new Text_Editor_Custom_Control( $wp_customize, 'pat_footer_text', array(
+        'label' => _x( 'Footer Text', 'Footer Text Customizer Label', THEME_ID ),
+        'section' => 'pat_customizer_section',
+        'settings' => 'pat_footer_text_settings',
+    ) ) );
+    
+}
 
 require_once __DIR__ . '/admin/admin.php';
