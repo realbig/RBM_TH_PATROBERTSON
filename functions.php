@@ -245,7 +245,7 @@ function pat_customize_register( $wp_customize ) {
     ) ) );
     
     $wp_customize->add_setting( 'pat_footer_text_settings', array(
-            'default' =>  _x( 'When life knocks you down <br />get up and dance!', 'Default Customizer Header Text', THEME_ID ),
+            'default' =>  _x( '<h1>When life knocks you down <br />get up and dance!</h1>', 'Default Customizer Header Text', THEME_ID ),
             'transport' => 'refresh',
         )
     );

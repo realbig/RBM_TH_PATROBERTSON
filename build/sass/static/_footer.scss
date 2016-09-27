@@ -1,54 +1,111 @@
 footer {
-    
+
     background-color: $primary-color;
     color: $secondary-color;
-    
+
     // Base Padding on Column Gutters for a consistent feel
     $small-padding: map-get( $grid-column-gutter, 'small' );
     $medium-padding: map-get( $grid-column-gutter, 'medium' );
-    
+
     padding: $small-padding;
-    
+
     @media #{$medium-up} {
         padding: $medium-padding;   
     }
-    
+
     a {
-        
+
         color: $secondary-color;
-        
+
         &:hover {
             color: scale-color( $secondary-color, $lightness: -15% );
         }
-        
+
     }
-    
+
     .widget_nav_menu {
-        
+
         .menu {
-            
+
             list-style: none;
             margin-bottom: 0;
-            
+
             li {
-                
+
                 margin-bottom: 0.5em;
-                
+
                 &:last-of-type {
                     margin-bottom: 0;   
                 }
-                
+
             }
-            
+
         }
-        
+
     }
-    
+
     // Different styling for Submit buttons in the Footer. Just in case it ever happens
     input[type="submit"] {
-    
+
         @include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
 
     }
-    
+
+}
+
+.footer-logo {
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    min-height: 198px;
+    min-height: 50vh;
+
+    // Base Padding on Column Gutters for a consistent feel
+    $small-padding: map-get( $grid-column-gutter, 'small' );
+    $medium-padding: map-get( $grid-column-gutter, 'medium' );
+
+    padding: $small-padding;
+
+    @media #{$medium-up} {
+        padding: $medium-padding;   
+    }
+
+    h1, h2, h3, h4, h5, h6, p {
+
+        color: #fff;
+        text-shadow: 0.03em 0.03em 0.03em $dark-gray;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+    }
+
+    .footer-content {
+
+        text-align: left;
+
+        position: absolute;
+        bottom: $small-padding;
+        left: $small-padding;
+
+    }
+
+    @media #{$medium-up} {
+
+        min-height: 310px;
+        min-height: 40vh;
+
+        .footer-content {
+
+            top: 8%;
+            left: $small-padding;
+
+        }
+
+    }
+
 }
