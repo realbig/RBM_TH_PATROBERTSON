@@ -13,6 +13,9 @@ Base element settings (no classes or id's).
         body{
             width:100%;
             overflow-x: hidden;
+
+            overflow-y: scroll; // iOS Safari Momentum Scroll Fix
+            -webkit-overflow-scrolling: touch;
         }
 }
 
@@ -139,19 +142,19 @@ blockquote {
         font-size: rem-calc( map-get-deep( $header-sizes, 'small', 'h2' ) );
 
     }
-    
+
     @media #{$medium-up} {
-        
+
         padding: $blockquote-padding;
         padding-left: rem-calc( map-get-deep( $header-sizes, 'medium', 'h1' ) );
-        
+
         &:before {
             position: absolute;
             left: 0;
             top: 0;
             font-size: rem-calc( map-get-deep( $header-sizes, 'medium', 'h2' ) );
         }
-        
+
     }
 
 }
