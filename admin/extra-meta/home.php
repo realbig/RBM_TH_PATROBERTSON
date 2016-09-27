@@ -11,27 +11,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-$home_page = get_option( 'page_on_front' );
-
 // Remove unneeded Default Meta/Supports for the Home Page
-add_action( 'update_post_meta', 'pat_remove_home_supports' );
+add_action( 'init', 'pat_remove_home_supports' );
 add_action( 'do_meta_boxes', 'pat_remove_home_metaboxes' );
 
 // Add the Metaboxes that we want for the Home Page
 add_action( 'add_meta_boxes', 'pat_add_home_metaboxes' );
 
 /**
- * update_post_meta is at just the right position to have access to the Post ID as well as remove Supports
+ * Remove Supports from the Home Page
  * 
  * @since       1.0.0
  * @return      void
  */
 function pat_remove_home_supports() {
     
-    global $post;
-    global $home_page;
-    
-    if ( $post->ID == $home_page ) {
+    if ( is_admin() && isset( $_REQUEST['post'] ) && $_REQUEST['post'] == get_option( 'page_on_front' ) ) {
 
         remove_post_type_support( 'page', 'thumbnail' );
         remove_post_type_support( 'page', 'editor' );
@@ -48,10 +43,7 @@ function pat_remove_home_supports() {
  */
 function pat_remove_home_metaboxes() {
     
-    global $post;
-    global $home_page;
-    
-    if ( $post->ID == $home_page ) {
+    if ( is_admin() && isset( $_REQUEST['post'] ) && $_REQUEST['post'] == get_option( 'page_on_front' ) ) {
     
         // "Attributes" Meta Box
         remove_meta_box( 'pageparentdiv', 'page', 'side' );
@@ -68,10 +60,7 @@ function pat_remove_home_metaboxes() {
  */
 function pat_add_home_metaboxes() {
     
-    global $post;
-    global $home_page;
-    
-    if ( $post->ID == $home_page ) {
+    if ( is_admin() && isset( $_REQUEST['post'] ) && $_REQUEST['post'] == get_option( 'page_on_front' ) ) {
 
         add_meta_box(
             'pat-home-about',
@@ -92,6 +81,13 @@ function pat_add_home_metaboxes() {
  * @return      void
  */
 function pat_home_about_metabox_content() {
+    
+    rbm_do_field_text(
+        'pat_home_about_title',
+        _x( 'Title', 'Home About Image Title', THEME_ID ),
+        false,
+        array()
+    );
     
     rbm_do_field_media(
         'pat_home_about_image',

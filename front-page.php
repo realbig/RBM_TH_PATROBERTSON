@@ -15,7 +15,7 @@ get_header();
 
 the_post();
 
-the_content();
+locate_template( 'partials/home/about.php', true );
 
 get_footer();
 ?>

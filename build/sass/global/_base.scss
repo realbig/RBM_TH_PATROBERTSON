@@ -42,20 +42,20 @@ section {
 }
 
 #site-content {
-    
+
     height: 100%;
     background-color: $body-background;
-    
+
     // Base Padding on Column Gutters for a consistent feel
     $small-padding: map-get( $grid-column-gutter, 'small' );
     $medium-padding: map-get( $grid-column-gutter, 'medium' );
-    
+
     padding: $small-padding;
-    
+
     @media #{$medium-up} {
         padding: $medium-padding;   
     }
-    
+
 }
 
 img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" button
@@ -63,7 +63,7 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
     @include thumbnail;
     border: none;
     box-shadow: none;
-    
+
     &:hover, &:focus {
         box-shadow: none;
     }
@@ -75,7 +75,7 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
 }
 
 .widget {
-    
+
     list-style-type: none;
 
     .menu {
@@ -100,7 +100,7 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
 
 // I don't know why this is a Foundation Default. In some locations it makes sense, but people expect links to be underlined.
 #site-content, footer {
-    
+
     a:not(.button) {
 
         text-decoration: underline;
@@ -108,7 +108,7 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
         &:hover {
             text-decoration: none;
         }
-        
+
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -116,13 +116,42 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
             text-decoration: none !important;
         }
     }
-    
+
 }
 
 
 // Catch-all for WP Search Fields and stuff
 input[type="submit"] {
-    
+
     @include button( false, $primary-color, scale-color( $primary-color, $lightness: -15% ), 'auto', 'solid' );
+
+}
+
+blockquote {
+
+    position: relative;
+    padding: 0;
+
+    &:before {
+
+        content: '\f10d';
+        font-family: 'FontAwesome';
+        font-size: rem-calc( map-get-deep( $header-sizes, 'small', 'h2' ) );
+
+    }
     
+    @media #{$medium-up} {
+        
+        padding: $blockquote-padding;
+        padding-left: rem-calc( map-get-deep( $header-sizes, 'medium', 'h1' ) );
+        
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: rem-calc( map-get-deep( $header-sizes, 'medium', 'h2' ) );
+        }
+        
+    }
+
 }
