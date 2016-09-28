@@ -1,4 +1,6 @@
 .pat-about {
+    
+    position: relative;
 
     @include create-gradient( 'horizontal', #C9580B, $primary-color );
     @include light-or-dark-text( $primary-color );
@@ -43,9 +45,10 @@
 
         img {
             position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 55%;
+            top: -5em;
+            left: 0;
+            width: 115%;
+            max-width: none;
         }
 
     }
@@ -73,28 +76,71 @@
 
         }
 
-        blockquote {
-
-            &, p {
-                color: inherit;
-            }
-
-        }
-
         // Actual changes for Mobile
 
         .text-container {
-            padding: $small-padding;
+            
+            padding: 0;
+            
+            & > * {
+                padding: 0 $small-padding 0 $small-padding;
+            }
+            
+            & > *:first-child {
+                padding-top: $small-padding;
+            }
+            
+            & > *:last-child {
+                padding-bottom: $small-padding;
+            }
+            
+        }
+
+        blockquote {
+
+            padding: 0;
+            margin-bottom: 0;
+            
+            @if lightness( $primary-color ) < 50% {
+
+                p {
+
+                    @include text-stroke( #fff );
+
+                }
+
+                &, p {
+                    color: #fff;
+                }
+
+            }
+            @else {
+
+                &, p {
+                    color: inherit;
+                }
+
+            }
+            
+            &, p {
+                
+                font-weight: normal;
+                
+            }
+            
+            @include create-gradient( 'horizontal', #C9580B, $primary-color );
+
         }
 
         .image-container {
-
+            
             @include create-gradient( 'horizontal', #C9580B, $primary-color );
 
             img {
                 position: relative;
-                width: 90%;
-                float: right;
+                top: 0;
+                left: 0;
+                right: 0;
             }
 
         }

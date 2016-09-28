@@ -139,7 +139,7 @@ blockquote {
 
         content: '\f10d';
         font-family: 'FontAwesome';
-        font-size: rem-calc( map-get-deep( $header-sizes, 'small', 'h2' ) );
+        font-size: rem-calc( map-get-deep( $header-sizes, 'medium', 'h1' ) );
 
     }
 

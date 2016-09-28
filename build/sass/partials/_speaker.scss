@@ -1,0 +1,58 @@
+.pat-speaker {
+
+    position: relative;
+
+    @include create-gradient( 'horizontal', #C9580B, $primary-color );
+    @include light-or-dark-text( $primary-color );
+
+    font-size: rem-calc( map-get-deep( $header-sizes, 'medium', 'h4' ) );
+
+    // Base Padding on Column Gutters for a consistent feel
+    $small-padding: map-get( $grid-column-gutter, 'small' );
+    $medium-padding: map-get( $grid-column-gutter, 'medium' );
+
+    @media #{$medium-up} {
+        padding: $medium-padding;   
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @include light-or-dark-text( $primary-color );
+    }
+    
+    .fa {
+        color: $secondary-color;
+    }
+
+    .columns {
+
+        @if lightness( $primary-color ) < 50% {
+            & > p {
+                // Sometimes "Bold" is too "Bold"
+                @include text-stroke( $light-color );
+            }
+        }
+
+    }
+
+    @media #{$small-only} {
+        
+        text-align: center;
+
+        .columns {
+            padding: $small-padding;
+        }
+
+        .image-container {
+
+            padding: 0;
+            
+            img {
+                width: 100%;
+                height: auto;
+            }
+            
+        }
+
+    }
+
+}
