@@ -1,34 +1,17 @@
 <?php
 /**
- * Displays Books Archive.
+ * Book Me as a Speaker Blurb on the Home Page
  *
- * @since   1.0.0
- * @package PatRobertson
+ * @since       1.0.0
+ * @package     PatRobertson
+ * @subpackage  PatRobertson/partials/loop
  */
 
-// Don't load directly
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
-
-// Load any post-type specific hooks, if they exist
-locate_template( '/includes/hooks/pat-books-hooks.php', true, true );
-
-get_header();
+defined( 'ABSPATH' ) || die();
 
 $site_url = get_bloginfo( 'url' );
 
-?>
-
-<h1 class="page-title columns small-12">
-    <?php post_type_archive_title( '' ); ?>
-</h1>
-
-<?php
-the_archive_description( '<div class="taxonomy-description columns small-12">', '</div>' );
-?>
-
-<?php if ( have_posts() ) : ?>
+if ( have_posts() ) : ?>
 
     <div class="row">
 
@@ -89,6 +72,3 @@ the_archive_description( '<div class="taxonomy-description columns small-12">', 
     </div>
 
 <?php endif; ?>
-
-<?php
-get_footer();
