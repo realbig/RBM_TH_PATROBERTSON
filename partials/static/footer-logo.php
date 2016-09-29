@@ -2,8 +2,9 @@
 /**
  * Footer Banner Image
  *
- * @since   1.0.0
- * @package PatRobertson
+ * @since       1.0.0
+ * @package     PatRobertson
+ * @subpackage  PatRobertson/partials/static
  */
 
 ?>

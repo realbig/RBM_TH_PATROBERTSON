@@ -37,6 +37,14 @@ if ( ! defined( 'ABSPATH' ) ) {
         <?php endforeach; ?>
         
     </div>
+    
+    <div class="row">
+        <div class="small-12 columns text-center">
+            <?php echo sprintf( _x( 'Site by %s', 'Site By Footer Text', THEME_ID ), '<a href="//realbigmarketing.com/" target="_blank">Real Big Marketing</a>' ); ?>
+            <br />
+            <?php echo sprintf( _x( 'Copyright &copy; %s Pat Robertson', 'Copyright Footer Text', THEME_ID ), date( 'Y' ) ); ?>
+        </div>
+    </div>
 
 </footer>
 

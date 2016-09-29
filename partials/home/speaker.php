@@ -2,8 +2,9 @@
 /**
  * Book Me as a Speaker Blurb on the Home Page
  *
- * @since   1.0.0
- * @package PatRobertson
+ * @since       1.0.0
+ * @package     PatRobertson
+ * @subpackage  PatRobertson/partials/home
  */
 
 ?>
