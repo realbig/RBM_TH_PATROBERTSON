@@ -1,6 +1,7 @@
 .pat-speaker {
 
     position: relative;
+    text-align: center;
 
     @include create-gradient( 'horizontal', #C9580B, $primary-color );
     @include light-or-dark-text( $primary-color );
@@ -11,19 +12,17 @@
     $small-padding: map-get( $grid-column-gutter, 'small' );
     $medium-padding: map-get( $grid-column-gutter, 'medium' );
 
-    @media #{$medium-up} {
-        padding: $medium-padding;   
-    }
-
     h1, h2, h3, h4, h5, h6 {
         @include light-or-dark-text( $primary-color );
     }
-    
+
     .fa {
         color: $secondary-color;
     }
 
     .columns {
+
+        padding: 0 $small-padding 0 $small-padding;
 
         @if lightness( $primary-color ) < 50% {
             & > p {
@@ -31,26 +30,83 @@
                 @include text-stroke( $light-color );
             }
         }
+        
+        @media #{$small-only} {
+        
+            &:first-of-type {
+                padding-top: $small-padding;
+            }
+
+            &:nth-last-of-type(2) {
+                padding: $small-padding;
+            }
+            
+        }
+
+    }
+    
+    .text-container {
+        h1 {
+            font-size: rem-calc( map-get-deep( $header-sizes, 'medium', 'h2' ) );
+        }
+    }
+
+    .image-container {
+
+        padding: 0;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
 
     }
 
-    @media #{$small-only} {
+    @media #{$medium-up} {
         
-        text-align: center;
-
+        text-align: left;
+        position: relative;
+        
         .columns {
-            padding: $small-padding;
+            padding: $medium-padding;
+        }
+        
+        // Hey, it works
+        // Moving them how they needed to be unfortunately could not be done fully with push/pull classes
+        
+        .megaphone-container {
+            
+            text-align: center;
+            margin-top: rem-calc( map-get-deep( $header-sizes, 'medium', 'h1' ) + ( $medium-padding / 2 ) );
+            
+        }
+        
+        .text-container {
+            
+            h1 {
+                margin-top: rem-calc( map-get-deep( $header-sizes, 'medium', 'h1' ) - ( $medium-padding / 5 ) );
+                font-size: rem-calc( map-get-deep( $header-sizes, 'medium', 'h1' ) * 1.25 );
+            }
+            
+        }
+
+        .button-container {
+
+            margin-top: rem-calc( map-get-deep( $header-sizes, 'medium', 'h1' ) + ( $medium-padding * 2.5 ) );
+
         }
 
         .image-container {
-
+            
+            margin-top: - rem-calc( ( map-get-deep( $header-sizes, 'medium', 'h1' ) * 4 ) + ( $medium_padding * 2.39 ) );
             padding: 0;
             
             img {
-                width: 100%;
-                height: auto;
+                width: auto;
+                height: 50%;
+                float: right;
             }
-            
+
         }
 
     }
