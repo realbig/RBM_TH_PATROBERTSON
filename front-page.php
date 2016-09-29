@@ -19,5 +19,7 @@ locate_template( 'partials/home/about.php', true );
 
 locate_template( 'partials/home/speaker.php', true );
 
+locate_template( 'partials/home/testimonials.php', true );
+
 get_footer();
 ?>

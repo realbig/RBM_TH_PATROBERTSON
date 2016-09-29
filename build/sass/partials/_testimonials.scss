@@ -1,0 +1,38 @@
+.pat-testimonials {
+
+    // Base Padding on Column Gutters for a consistent feel
+    $small-padding: map-get( $grid-column-gutter, 'small' );
+    $medium-padding: map-get( $grid-column-gutter, 'medium' );
+
+    padding: $small-padding;
+
+    @media #{$medium-up} {
+        padding: $medium-padding;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $body-font-family;
+        font-weight: bold;
+    }
+
+    .media-object {
+
+        display: table;
+
+        .thumbnail {
+
+            img {
+                border-radius: 50%;
+                border: 1px solid $dark-gray;
+            }
+
+        }
+
+        .main-section {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+    }
+    
+}
