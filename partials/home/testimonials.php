@@ -24,10 +24,10 @@ if ( $testimonials->have_posts() ) : ?>
             'medium-6',
         ) ); ?>>
 
-            <div class="media-object">
+            <div class="media-object stack-for-small">
                 <div class="media-object-section">
                     <div class="thumbnail">
-                        <?php the_post_thumbnail( 'thumbnail' ); ?>
+                        <?php the_post_thumbnail(); ?>
                     </div>
                 </div>
                 <div class="media-object-section main-section">

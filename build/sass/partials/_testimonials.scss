@@ -20,19 +20,33 @@
         display: table;
 
         .thumbnail {
-
+            
+            text-align: center;
+            
             img {
+                width: 50%;
+                text-align: center;
                 border-radius: 50%;
                 border: 1px solid $dark-gray;
             }
-
+            
         }
+        
+        @media #{$medium-up} {
+            
+            .thumbnail {
+                img {
+                    width: 100%;
+                }
+            }
 
-        .main-section {
-            display: table-cell;
-            vertical-align: middle;
+            .main-section {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            
         }
 
     }
-    
+
 }
