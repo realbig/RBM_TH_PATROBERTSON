@@ -1,6 +1,6 @@
 <?php
 /**
- * Book Me as a Speaker Blurb on the Home Page
+ * Loop Template fallback
  *
  * @since       1.0.0
  * @package     PatRobertson
