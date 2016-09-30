@@ -37,13 +37,17 @@ $medium_class = 'medium-' . ( 12 / count( $categories ) );
 
             if ( $query->have_posts() ) : ?>
             
-                <h2><?php echo $category_object->name; ?></h2>
+                <h2 class="category-title"><?php echo $category_object->name; ?></h2>
             
                 <div class="row expanded">
 
                     <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
-                        <div class="small-12 medium-6 columns">
+                        <article id="post-<?php the_ID(); ?>" <?php post_class( array(
+                            'columns',
+                            'small-12',
+                            'medium-6',
+                        ) ); ?>>
                             
                             <?php if ( has_post_thumbnail() ) : ?>
                             
@@ -59,7 +63,7 @@ $medium_class = 'medium-' . ( 12 / count( $categories ) );
                             
                             <span class="timestamp"><span class="fa fa-clock-o"></span>&nbsp;<?php the_date(); ?></span>
                             
-                        </div>
+                        </article>
 
                     <?php endwhile; wp_reset_postdata(); ?>
                     

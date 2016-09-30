@@ -14,6 +14,18 @@
         color: $body-font-color;
     }
     
+    @media #{$small-only} {
+        
+        .category-title {
+            font-size: rem-calc( map-get-deep( $header-sizes, 'medium', 'h3' ) );
+        }
+        
+        .type-post {
+            margin-bottom: 1em;
+        }
+        
+    }
+    
     .button {
         margin-top: 1em;
     }
