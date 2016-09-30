@@ -15,6 +15,8 @@ get_header();
 
 the_post();
 
+locate_template( 'partials/home/books.php', true );
+
 locate_template( 'partials/home/about.php', true );
 
 locate_template( 'partials/home/speaker.php', true );
