@@ -1,6 +1,6 @@
 <?php
 /**
- * The theme's single file use for displaying single posts.
+ * The theme's single file use for displaying single Books.
  * 
  * @since 1.0.0
  * @package PatRobertson
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Load any post-type specific hooks, if they exist
-locate_template( '/includes/hooks/' . get_post_type() . '-hooks.php', true, true );
+locate_template( '/includes/hooks/pat-books-hooks.php', true, true );
 
 get_header();
 
@@ -35,9 +35,13 @@ the_post();
             <?php the_title(); ?>
         </h1>
         
-        <p>
-            <span class="timestamp"><span class="fa fa-clock-o"></span>&nbsp;<?php the_date(); ?></span>
-        </p>
+        <?php if ( get_post_meta( get_the_ID(), '_rbm_pat_books_amazon_sale', true ) ) : ?>
+                        
+            <p>
+                <span class="on-sale"><?php echo _x( 'On Sale Now!', 'On Sale Now Text', THEME_ID ); ?></span>
+            </p>
+
+        <?php endif; ?>
 
         <?php the_content(); ?>
 

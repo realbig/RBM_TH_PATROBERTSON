@@ -43,6 +43,14 @@ if ( have_posts() ) : ?>
                             <?php the_title(); ?>
                         </a>
                     </h1>
+                    
+                    <?php if ( get_post_meta( get_the_ID(), '_rbm_pat_books_amazon_sale', true ) ) : ?>
+                        
+                        <p>
+                            <span class="on-sale"><?php echo _x( 'On Sale Now!', 'On Sale Now Text', THEME_ID ); ?></span>
+                        </p>
+
+                    <?php endif; ?>
 
                     <?php the_excerpt(); ?>
 
