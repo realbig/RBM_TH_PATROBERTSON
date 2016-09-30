@@ -13,7 +13,7 @@ $site_url = get_bloginfo( 'url' );
 
 if ( have_posts() ) : ?>
 
-    <div class="row">
+    <div class="row expanded">
 
     <?php while ( have_posts() ) :
         the_post();
@@ -24,30 +24,48 @@ if ( have_posts() ) : ?>
             'small-12'
         ) ); ?>>
 
-            <h1 class="post-title">
-                <a href="<?php the_permalink(); ?>"<?php echo ( strpos( $permalink, $site_url ) === false ) ? ' target="_blank"' : ''; ?>>
-                    <?php the_title(); ?>
-                </a>
-            </h1>
+            <div class="media-object stack-for-small">
+                
+                <?php if ( has_post_thumbnail() ) : ?>
+                
+                    <div class="media-object-section">
+                        <div class="thumbnail">
+                            <?php the_post_thumbnail( 'thumbnail' ); ?>
+                        </div>
+                    </div>
+                
+                <?php endif; ?>
+                
+                <div class="media-object-section main-section">
+                    
+                    <h1 class="post-title">
+                        <a href="<?php the_permalink(); ?>">
+                            <?php the_title(); ?>
+                        </a>
+                    </h1>
 
-            <?php the_excerpt(); ?>
+                    <?php the_excerpt(); ?>
 
-            <?php if ( strpos( $permalink, $site_url ) === false ) : ?>
-                <a href="<?php the_permalink(); ?>" class="button primary" target="_blank">
-                    <?php echo _x( 'Buy on Amazon', 'Amazon Link Text', THEME_ID ); ?>
-                </a>
-            <?php else : ?>
-                <a href="<?php the_permalink(); ?>" class="button primary">
-                    <?php echo _x( 'Read More', 'Read More Text', THEME_ID ); ?>
-                </a>
-            <?php endif; ?>
+                    <?php if ( strpos( $permalink, $site_url ) === false ) : ?>
+                        <a href="<?php the_permalink(); ?>" class="button primary" target="_blank">
+                            <?php echo _x( 'Buy on Amazon', 'Amazon Link Text', THEME_ID ); ?>
+                        </a>
+                    <?php else : ?>
+                        <a href="<?php the_permalink(); ?>" class="button primary">
+                            <?php echo _x( 'Read More', 'Read More Text', THEME_ID ); ?>
+                        </a>
+                    <?php endif; ?>
+                    
+                </div>
+                
+            </div>
 
         </article>
     <?php endwhile; ?>
         
     </div>
 
-    <div class="row">
+    <div class="row expanded">
 
         <div class="columns small-12">
         <?php
@@ -63,7 +81,7 @@ if ( have_posts() ) : ?>
 
 <?php else: ?>
 
-    <div class="row">
+    <div class="row expanded">
 
         <div class="columns small-12">
             <?php echo _x( 'Nothing found, sorry!', 'No Posts Found Text', THEME_ID ); ?>

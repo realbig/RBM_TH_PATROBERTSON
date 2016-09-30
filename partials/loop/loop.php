@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || die();
 
 if ( have_posts() ) : ?>
 
-    <div class="row">
+    <div class="row expanded">
 
     <?php while ( have_posts() ) :
         the_post();
@@ -20,25 +20,45 @@ if ( have_posts() ) : ?>
             'columns',
             'small-12'
         ) ); ?>>
+            
+            <div class="media-object stack-for-small">
+                
+                <?php if ( has_post_thumbnail() ) : ?>
+                
+                    <div class="media-object-section">
+                        <div class="thumbnail">
+                            <?php the_post_thumbnail( 'thumbnail' ); ?>
+                        </div>
+                    </div>
+                
+                <?php endif; ?>
+                
+                <div class="media-object-section main-section">
+                    
+                    <h1 class="post-title">
+                        <a href="<?php the_permalink(); ?>">
+                            <?php the_title(); ?>
+                        </a>
+                    </h1>
+                    <span class="timestamp"><span class="fa fa-clock-o"></span>&nbsp;<?php the_date(); ?></span>
+                    <br />
 
-            <h1 class="post-title">
-                <a href="<?php the_permalink(); ?>">
-                    <?php the_title(); ?>
-                </a>
-            </h1>
+                    <?php the_excerpt(); ?>
 
-            <?php the_excerpt(); ?>
-
-            <a href="<?php the_permalink(); ?>" class="button primary">
-                <?php echo _x( 'Read More', 'Read More Text', THEME_ID ); ?>
-            </a>
+                    <a href="<?php the_permalink(); ?>" class="button primary">
+                        <?php echo _x( 'Read More', 'Read More Text', THEME_ID ); ?>
+                    </a>
+                    
+                </div>
+                
+            </div>
 
         </article>
     <?php endwhile; ?>
         
     </div>
 
-    <div class="row">
+    <div class="row expanded">
 
         <div class="columns small-12">
         <?php
@@ -54,7 +74,7 @@ if ( have_posts() ) : ?>
 
 <?php else: ?>
 
-    <div class="row">
+    <div class="row expanded">
 
         <div class="columns small-12">
             <?php echo _x( 'Nothing found, sorry!', 'No Posts Found Text', THEME_ID ); ?>
