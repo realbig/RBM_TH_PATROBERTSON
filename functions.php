@@ -257,4 +257,13 @@ function pat_customize_register( $wp_customize ) {
     
 }
 
+add_action( 'widgets_init', 'pat_register_widgets' );
+function pat_register_widgets() {
+    
+    require_once __DIR__ . '/includes/widgets/class-pat-social-widget.php';
+    
+    register_widget( 'Pat_Social_Widget' );
+    
+}
+
 require_once __DIR__ . '/admin/admin.php';
