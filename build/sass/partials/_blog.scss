@@ -1,0 +1,21 @@
+.pat-blog {
+    
+    // Base Padding on Column Gutters for a consistent feel
+    $small-padding: map-get( $grid-column-gutter, 'small' );
+    $medium-padding: map-get( $grid-column-gutter, 'medium' );
+    
+    padding: $small-padding;
+    
+    @media #{$medium-up} {
+        padding: $medium-padding;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: $body-font-color;
+    }
+    
+    .button {
+        margin-top: 1em;
+    }
+    
+}
