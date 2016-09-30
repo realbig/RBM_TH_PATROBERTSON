@@ -17,6 +17,10 @@ $books = new WP_Query( array(
     'posts_per_page' => 5,
 ) );
 
+// Show only this many books (After the first one) on Mobile
+// So, X + 1 where "X" is the value of this filter
+$hide_on_mobile_at = apply_filters( 'pat-home-books-mobile-show', 2 );
+
 if ( $books->have_posts() ) : 
     $books->the_post();
 
@@ -65,16 +69,19 @@ if ( $books->have_posts() ) :
         
                 <div class="row bottom-row">
 
-                <?php while ( $books->have_posts() ) :
+                <?php 
+                
+                $index = 0;
+                while ( $books->have_posts() ) :
                     $books->the_post();
                     
                     $permalink = get_permalink();
+                    
+                    $post_classes = array( 'columns', 'small-12', 'medium-3' );
+                    if ( $index >= $hide_on_mobile_at ) $post_classes[] = 'hide-for-small-only';
+                    
                     ?>
-                    <article id="post-<?php the_ID(); ?>" <?php post_class( array(
-                        'columns',
-                        'small-12',
-                        'medium-3',
-                    ) ); ?>>
+                    <article id="post-<?php the_ID(); ?>" <?php post_class( $post_classes ); ?>>
 
                         <?php the_post_thumbnail(); ?><br />
                         <?php if ( strpos( $permalink, $site_url ) === false ) : ?>
@@ -88,7 +95,11 @@ if ( $books->have_posts() ) :
                         <?php endif; ?>
 
                     </article>
-                <?php endwhile;
+                    
+                <?php 
+                
+                    $index++;
+                endwhile;
 
             endif; ?>
                     
