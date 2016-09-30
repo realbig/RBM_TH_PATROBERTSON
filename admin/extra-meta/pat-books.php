@@ -27,7 +27,7 @@ function pat_add_books_metaboxes() {
 
     add_meta_box(
         'pat-books-amazon',
-        _x( 'External Link', 'Books External Link Metabox Title', THEME_ID ),
+        _x( 'Amazon Information', 'Amazon Information Metabox Title', THEME_ID ),
         'pat_books_external_link_metabox_content',
         'pat-books',
         'side'
@@ -50,6 +50,13 @@ function pat_books_external_link_metabox_content() {
         array(
             'description' => _x( "This overrides the default WordPress Permalink. This Book's link will automatically direct to Amazon if set.", 'Books Amazon Link Description', THEME_ID ),
         )
+    );
+    
+    rbm_do_field_checkbox(
+        'pat_books_amazon_sale',
+        _x( 'Is this Book on Sale?', 'Books Amazon Sale Label', THEME_ID ),
+        false,
+        array()
     );
     
 }

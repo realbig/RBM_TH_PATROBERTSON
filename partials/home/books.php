@@ -38,13 +38,28 @@ if ( $books->have_posts() ) :
                 <div class="row expanded">
                     
                     <div class="small-12 medium-4 columns">
-                            <?php the_post_thumbnail( 'full' ); ?>
+                        <?php if ( has_post_thumbnail() ) : ?>
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                <?php the_post_thumbnail( 'full' ); ?>
+                            </a>
+                        <?php endif; ?>
                     </div>
                     <div class="small-12 medium-8 columns">
                         
                         <h3 class="post-title">
-                            <?php the_title(); ?>
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                <?php the_title(); ?>
+                            </a>
                         </h3>
+                        
+                        <?php if ( get_post_meta( get_the_ID(), '_rbm_pat_books_amazon_sale', true ) ) : ?>
+                        
+                            <p>
+                                <span class="on-sale"><?php echo _x( 'On Sale Now!', 'On Sale Now Text', THEME_ID ); ?></span>
+                            </p>
+                        
+                        <?php endif; ?>
+                        
                         <?php the_content(); ?>
                         
                         <?php if ( strpos( $permalink, $site_url ) === false ) : ?>
@@ -83,7 +98,21 @@ if ( $books->have_posts() ) :
                     ?>
                     <article id="post-<?php the_ID(); ?>" <?php post_class( $post_classes ); ?>>
 
-                        <?php the_post_thumbnail(); ?><br />
+                        <?php if ( has_post_thumbnail() ) : ?>
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                <?php the_post_thumbnail( 'full' ); ?>
+                            </a>
+                            <br />
+                        <?php endif; ?>
+                        
+                        <?php if ( get_post_meta( get_the_ID(), '_rbm_pat_books_amazon_sale', true ) ) : ?>
+                        
+                            <p>
+                                <span class="on-sale"><?php echo _x( 'On Sale Now!', 'On Sale Now Text', THEME_ID ); ?></span>
+                            </p>
+                        
+                        <?php endif; ?>
+                        
                         <?php if ( strpos( $permalink, $site_url ) === false ) : ?>
                             <a href="<?php the_permalink(); ?>" class="button hollow expanded primary" target="_blank">
                                 <?php echo _x( 'Buy on Amazon', 'Amazon Link Text', THEME_ID ); ?>
