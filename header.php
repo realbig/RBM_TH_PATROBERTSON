@@ -54,7 +54,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 <header id="site-header">
                     
-                    <?php locate_template( 'partials/static/header-logo.php', true ); ?>
+                    <?php if ( is_front_page() ) : ?>
+                    
+                        <?php locate_template( 'partials/static/header-logo.php', true ); ?>
+                    
+                    <?php endif; ?>
 
                     <div class="top-bar">
 
