@@ -18,7 +18,7 @@ the_post();
 
 <div class="row">
 
-    <article id="page-404" class="columns small-12">
+    <article id="page-404" class="small-12 <?php echo ( is_active_sidebar( 'sidebar-main' ) ? 'medium-9' : 'no-sidebar' ); ?> columns">
 
         <h1 class="page-title">
             <?php echo _x( '404 - Not Found', '404 Page Title', THEME_ID ); ?>
@@ -29,6 +29,16 @@ the_post();
         </p>
 
     </article>
+    
+    <?php if ( is_active_sidebar( 'sidebar-main' ) ) : ?>
+    
+        <div class="small-12 medium-3 columns">
+            
+            <?php dynamic_sidebar( 'sidebar-main' ); ?>
+            
+        </div>
+    
+    <?php endif; ?>
     
 </div>
 
