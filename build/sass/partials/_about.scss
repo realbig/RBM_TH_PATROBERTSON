@@ -48,12 +48,25 @@
 
         img {
             position: absolute;
-            top: -5.15em;
-            left: 0;
-            width: 115%;
+            bottom: -$medium-padding;
+            right: -$medium-padding;
+            width: 75%;
             max-width: none;
         }
 
+    }
+    
+    @media #{$retina-only} {
+        
+        .image-container {
+            
+            img {
+                width: 125%;
+                right: - ( $medium-padding * 2.5 );
+            }
+            
+        }
+        
     }
 
     @media #{$small-only} {

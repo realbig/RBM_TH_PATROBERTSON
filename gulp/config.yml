@@ -12,7 +12,8 @@ javascript:
       - "bower_components/foundation-sites/js/foundation.util.motion.js"
       - "bower_components/foundation-sites/js/foundation.dropdownMenu.js"
       - "bower_components/foundation-sites/js/foundation.offcanvas.js"
-      - "bower_components/foundation-sites/js/foundation.sticky.js"
+      - "bower_components/foundation-sites/js/foundation.util.timerAndImageLoader.js" #Not Documented, but needed for Equalizer
+      - "bower_components/foundation-sites/js/foundation.equalizer.js"
     # filename to output
     filename: "script.js"
     notification: "Running JavaScript"
