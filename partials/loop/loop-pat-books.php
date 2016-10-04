@@ -14,62 +14,73 @@ $site_url = get_bloginfo( 'url' );
 if ( have_posts() ) : ?>
 
     <div class="row expanded">
+        
+        <div class="small-12 <?php echo ( is_active_sidebar( 'sidebar-main' ) ) ? 'medium-9': 'no-sidebar'; ?> columns">
 
-    <?php while ( have_posts() ) :
-        the_post();
-        $permalink = get_permalink();
-        ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class( array(
-            'columns',
-            'small-12'
-        ) ); ?>>
+            <?php while ( have_posts() ) :
+                the_post();
+                $permalink = get_permalink();
+                ?>
+                <article id="post-<?php the_ID(); ?>" <?php post_class( array() ); ?>>
 
-            <div class="media-object stack-for-small">
-                
-                <?php if ( has_post_thumbnail() ) : ?>
-                
-                    <div class="media-object-section">
-                        <div class="thumbnail">
-                            <?php the_post_thumbnail( 'thumbnail' ); ?>
+                    <div class="media-object stack-for-small">
+
+                        <?php if ( has_post_thumbnail() ) : ?>
+
+                            <div class="media-object-section">
+                                <div class="thumbnail">
+                                    <?php the_post_thumbnail( 'thumbnail' ); ?>
+                                </div>
+                            </div>
+
+                        <?php endif; ?>
+
+                        <div class="media-object-section main-section">
+
+                            <h1 class="post-title">
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php the_title(); ?>
+                                </a>
+                            </h1>
+
+                            <?php if ( get_post_meta( get_the_ID(), '_rbm_pat_books_amazon_sale', true ) ) : ?>
+
+                                <p>
+                                    <span class="on-sale"><?php echo _x( 'On Sale Now!', 'On Sale Now Text', THEME_ID ); ?></span>
+                                </p>
+
+                            <?php endif; ?>
+
+                            <?php the_excerpt(); ?>
+
+                            <?php if ( strpos( $permalink, $site_url ) === false ) : ?>
+                                <a href="<?php the_permalink(); ?>" class="button primary" target="_blank">
+                                    <?php echo _x( 'Buy on Amazon', 'Amazon Link Text', THEME_ID ); ?>
+                                </a>
+                            <?php else : ?>
+                                <a href="<?php the_permalink(); ?>" class="button primary">
+                                    <?php echo _x( 'Read More', 'Read More Text', THEME_ID ); ?>
+                                </a>
+                            <?php endif; ?>
+
                         </div>
+
                     </div>
-                
-                <?php endif; ?>
-                
-                <div class="media-object-section main-section">
-                    
-                    <h1 class="post-title">
-                        <a href="<?php the_permalink(); ?>">
-                            <?php the_title(); ?>
-                        </a>
-                    </h1>
-                    
-                    <?php if ( get_post_meta( get_the_ID(), '_rbm_pat_books_amazon_sale', true ) ) : ?>
-                        
-                        <p>
-                            <span class="on-sale"><?php echo _x( 'On Sale Now!', 'On Sale Now Text', THEME_ID ); ?></span>
-                        </p>
 
-                    <?php endif; ?>
+                </article>
+            <?php endwhile; ?>
+            
+        </div>
+        
+        <?php if ( is_active_sidebar( 'sidebar-main' ) ) : ?>
+    
+            <div class="small-12 medium-3 columns">
 
-                    <?php the_excerpt(); ?>
+                <?php dynamic_sidebar( 'sidebar-main' ); ?>
 
-                    <?php if ( strpos( $permalink, $site_url ) === false ) : ?>
-                        <a href="<?php the_permalink(); ?>" class="button primary" target="_blank">
-                            <?php echo _x( 'Buy on Amazon', 'Amazon Link Text', THEME_ID ); ?>
-                        </a>
-                    <?php else : ?>
-                        <a href="<?php the_permalink(); ?>" class="button primary">
-                            <?php echo _x( 'Read More', 'Read More Text', THEME_ID ); ?>
-                        </a>
-                    <?php endif; ?>
-                    
-                </div>
-                
             </div>
 
-        </article>
-    <?php endwhile; ?>
+        <?php endif; ?>
         
     </div>
 

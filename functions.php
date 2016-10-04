@@ -120,6 +120,13 @@ add_action( 'after_setup_theme', function () {
  * @since 1.0.0
  */
 add_action( 'widgets_init', function () {
+    
+    // Main Sidebar
+    register_sidebar( array(
+    	'name' => 'Main Sidebar',
+    	'id' => 'sidebar-main',
+    	'description' => 'Displays on Interior Pages.',
+    ) );
 
     // Footer left
     register_sidebar( array(
