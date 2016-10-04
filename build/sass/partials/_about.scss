@@ -5,8 +5,6 @@
     @include create-gradient( 'horizontal', #C9580B, $primary-color );
     @include light-or-dark-text( $primary-color );
 
-    font-size: rem-calc( map-get-deep( $header-sizes, 'medium', 'h4' ) );
-
     // Base Padding on Column Gutters for a consistent feel
     $small-padding: map-get( $grid-column-gutter, 'small' );
     $medium-padding: map-get( $grid-column-gutter, 'medium' );
@@ -33,6 +31,11 @@
     blockquote {
 
         border: none;
+        font-size: rem-calc( map-get-deep( $header-sizes, 'small', 'h5' ) );
+        
+        @media #{$medium-up} {
+            font-size: rem-calc( map-get-deep( $header-sizes, 'medium', 'h5' ) );
+        }
 
         &, p {
             color: $secondary-color;
