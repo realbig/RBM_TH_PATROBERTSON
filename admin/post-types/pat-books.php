@@ -53,6 +53,7 @@ $pat_books = new RBM_CPT_Pat_Books();
 
 /**
  * Force 404 on Single Templates that should be redirecting to Amazon
+ * This cannot go in the Hooks File as it loads within the Template itself, by then it is too late
  * 
  * @param       string $template Path to Template File
  *                                                
@@ -79,3 +80,4 @@ function pat_books_force_404( $template ) {
     return $template;
     
 }
+add_filter( 'template_include', 'pat_books_force_404' );

@@ -61,10 +61,6 @@ function pat_books_external_link_metabox_content() {
     
 }
 
-// Force a 404 on Book Single pages that should redirect to Amazon
-// This cannot go in the Hooks File as it loads within the Template itself, by then it is too late
-add_filter( 'template_include', 'pat_books_force_404' );
-
 /**
  * Show the Amazon URL as the Permalink Sample if this Book has one set
  * 
