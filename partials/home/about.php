@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="pat-about row expanded" data-equalizer>
+<div class="pat-about row expanded" data-equalizer data-equalize-on="medium">
 
     <div class="small-12 medium-3 medium-push-9 columns image-container" data-equalizer-watch>
 
