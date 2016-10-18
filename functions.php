@@ -23,18 +23,11 @@ if ( defined( 'THEME_VERSION' ) || defined( 'THEME_ID' ) || isset( $theme_fonts 
 
 /**
  * Define Constants based on our Stylesheet Header. Update things only once!
- * 
- * @since 1.0.0
- * @return void
  */
-add_action( 'init', function() {
+$theme_header = wp_get_theme();
 
-    $theme_header = wp_get_theme();
-
-    define( 'THEME_ID', $theme_header->get( 'TextDomain' ) );
-    define( 'THEME_VERSION', $theme_header->get( 'Version' ) );
-
-} );
+define( 'THEME_ID', $theme_header->get( 'TextDomain' ) );
+define( 'THEME_VERSION', $theme_header->get( 'Version' ) );
 
 /**
  * Fonts for the theme. Must be hosted font (Google fonts for example).
@@ -273,4 +266,8 @@ function pat_register_widgets() {
     
 }
 
-require_once __DIR__ . '/admin/admin.php';
+//add_action( 'admin_init', function() {
+    
+    require_once __DIR__ . '/admin/admin.php';
+    
+//} );
