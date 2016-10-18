@@ -265,9 +265,5 @@ function pat_register_widgets() {
     register_widget( 'Pat_Social_Widget' );
     
 }
-
-//add_action( 'admin_init', function() {
     
-    require_once __DIR__ . '/admin/admin.php';
-    
-//} );
+require_once __DIR__ . '/admin/admin.php';
