@@ -29,7 +29,13 @@ if ( have_posts() ) : ?>
 
                             <div class="media-object-section">
                                 <div class="thumbnail">
-                                    <?php the_post_thumbnail( 'medium' ); ?>
+                                    <?php if ( strpos( $permalink, $site_url ) === false ) : ?>
+                                        <a href="<?php the_permalink(); ?>" target="_blank" title="<?php printf( _x( 'Buy %s on Amazon', 'Buy On Amazon Image Title', THEME_ID ), get_the_title() ); ?>">
+                                    <?php else : ?>
+                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                    <?php endif; ?>
+                                            <?php the_post_thumbnail( 'medium' ); ?>
+                                        </a>
                                 </div>
                             </div>
 

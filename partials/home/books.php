@@ -58,9 +58,15 @@ if ( $books->have_posts() ) :
                     
                     <div class="small-12 medium-4 columns">
                         <?php if ( has_post_thumbnail() ) : ?>
-                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                                <?php the_post_thumbnail( 'full' ); ?>
-                            </a>
+                        
+                            <?php if ( strpos( $permalink, $site_url ) === false ) : ?>
+                                <a href="<?php the_permalink(); ?>" target="_blank" title="<?php printf( _x( 'Buy %s on Amazon', 'Buy On Amazon Image Title', THEME_ID ), get_the_title() ); ?>">
+                            <?php else : ?>
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                            <?php endif; ?>
+                                    <?php the_post_thumbnail( 'full' ); ?>
+                                </a>
+                                    
                         <?php endif; ?>
                     </div>
                     
