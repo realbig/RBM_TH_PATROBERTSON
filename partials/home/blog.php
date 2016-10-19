@@ -12,8 +12,8 @@ locate_template( '/includes/hooks/post-hooks.php', true, true );
 
 // Use Category Slug
 $categories = apply_filters( 'pat-home-blog-categories', array(
-    'on-life-writing',
-    'scripture-spirituality',
+    'on-life-and-writing',
+    'psalms',
 ) );
 
 // Only used for each Category Loop, not for the Post Loops
