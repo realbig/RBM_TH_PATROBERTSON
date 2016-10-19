@@ -24,11 +24,9 @@ the_post();
     <article id="page-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
         
         <?php if ( has_post_thumbnail() ) : ?>
-            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                <div class="thumbnail alignleft">
-                    <?php the_post_thumbnail( 'thumbnail' ); ?>
-                </div>
-            </a>
+            <div class="thumbnail alignleft">
+                <?php the_post_thumbnail( 'full' ); ?>
+            </div>
         <?php endif; ?>
 
         <h1 class="page-title">
