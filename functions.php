@@ -196,7 +196,7 @@ add_filter( 'oembed_dataparse', function( $return, $data, $url ) {
 /**
  * Adds custom Customizer Controls.
  *
- * @since 0.1.0
+ * @since 1.0.0
  */
 function pat_customize_register( $wp_customize ) {
     
@@ -257,12 +257,33 @@ function pat_customize_register( $wp_customize ) {
     
 }
 
+/**
+ * Add Social Widget
+ *
+ * @since 1.0.0
+ */
 add_action( 'widgets_init', 'pat_register_widgets' );
 function pat_register_widgets() {
     
     require_once __DIR__ . '/includes/widgets/class-pat-social-widget.php';
     
     register_widget( 'Pat_Social_Widget' );
+    
+}
+
+/**
+ * Filter the_archive_title() to be less... robotic
+ * 
+ * @param       string Archive Title
+ *
+ * @since       1.0.0
+ * @return      string Archive Title
+ */
+add_filter( 'get_the_archive_title', 'pat_archive_title_filter' );
+function pat_archive_title_filter( $title ) {
+    
+    // Not really necessary
+    return trim( str_replace( 'Archives:', '', $title ) );
     
 }
     
