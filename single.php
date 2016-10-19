@@ -19,7 +19,7 @@ get_header();
 the_post();
 ?>
 
-<div class="row">
+<div class="row expanded">
 
     <article id="page-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
         

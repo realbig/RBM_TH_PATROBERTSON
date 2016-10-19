@@ -69,14 +69,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                             </span>
                             
                             <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
-                            <?php bloginfo( 'name' ); ?>
-                            <?php 
-                                //echo wp_get_attachment_image( get_theme_mod( 'als_logo_image', 1 ), 'medium', false, array(
-                                //    'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
-                                //    'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
-                                //) ); 
-                            ?>
-                           </a>
+                                <?php bloginfo( 'name' ); ?>
+                            </a>
 
                         </div>
 
@@ -99,3 +93,13 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </header>
 
                 <section id="site-content">
+                    
+                    <?php if ( ! is_front_page() ) : ?>
+                    
+                        <div class="row expanded">
+                            <div class="small-12 columns">
+                                <?php pat_custom_breadcrumbs(); ?>
+                            </div>
+                        </div>
+                    
+                    <?php endif; ?>

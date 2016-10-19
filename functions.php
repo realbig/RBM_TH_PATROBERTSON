@@ -160,6 +160,9 @@ add_action( 'after_setup_theme', function () {
 
     // Add theme support
     require_once __DIR__ . '/includes/theme-support.php';
+    
+    // Add theme functions
+    require_once __DIR__ . '/includes/theme-functions.php';
 
     // Nav Walker for Foundation
     require_once __DIR__ . '/includes/class-foundation-nav-walker.php';

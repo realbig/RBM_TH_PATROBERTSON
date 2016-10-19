@@ -16,6 +16,7 @@ Text Domain: pat-robertson
 @include foundation-typography;
 @include foundation-forms;
 @include foundation-button;
+@include foundation-breadcrumbs;
 @include foundation-callout;
 @include foundation-grid;
 @include foundation-top-bar;
@@ -32,6 +33,7 @@ Text Domain: pat-robertson
 @import "global/wp";
 @import "global/base";
 @import "global/buttons";
+@import "global/breadcrumbs";
 
 @import "static/top-bar";
 @import "static/off-canvas";
