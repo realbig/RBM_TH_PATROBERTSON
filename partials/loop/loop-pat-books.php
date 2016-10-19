@@ -29,7 +29,7 @@ if ( have_posts() ) : ?>
 
                             <div class="media-object-section">
                                 <div class="thumbnail">
-                                    <?php the_post_thumbnail( 'thumbnail' ); ?>
+                                    <?php the_post_thumbnail( 'medium' ); ?>
                                 </div>
                             </div>
 
