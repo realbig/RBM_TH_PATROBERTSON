@@ -7,9 +7,39 @@
 .off-canvas-content {
     box-shadow: none;
     // For something that has to wrap your Site Content, this is a really silly default...
-    
-    .menu-icon {
-        margin-left: 10px;
+        
+    .menu-icon-container {
+        
+        background-color: lighten( $topbar-background, 5% );
+        color: $topbar-link-color;
+        font-family: $body-font-family;
+        display: inline-block;
+        padding: 0.25em;
+        margin-top: 0.125em;
+        
+        button {
+            
+            &:focus {
+                outline: none;
+            }
+        
+            .menu-icon {
+
+                &:after {
+                    margin-top: -0.0625em;
+                }
+
+            }
+
+            .menu-icon-text {
+                display: inline-block;
+                height: 1em;
+                vertical-align: middle;
+                margin-top: -0.25em;
+            }
+            
+        }
+
     }
     
 }

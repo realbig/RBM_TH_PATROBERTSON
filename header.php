@@ -64,9 +64,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                         <div class="top-bar-left top-bar-title">
                             
-                            <span class="show-for-small-only" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-                                <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
-                            </span>
+                            <div class="show-for-small-only menu-icon-container" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+                                <button type="button" data-open="offCanvasLeft">
+                                    <span class="menu-icon"></span>
+                                    <div class="menu-icon-text">
+                                        <?php echo _x( 'Menu', 'Hamburger Button Label', THEME_ID ); ?>
+                                    </div>
+                                </button>
+                            </div>
                             
                             <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
                                 <?php bloginfo( 'name' ); ?>
