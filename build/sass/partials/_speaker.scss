@@ -61,8 +61,59 @@
         }
 
     }
+    
+    // Very similar to the Large styling with some slight tweaks
+    @media #{$medium-only} {
+        
+        text-align: left;
+        position: relative;
+        
+        .columns {
+            padding: $small-padding;
+        }
+        
+        // Hey, it works
+        // Moving them how they needed to be unfortunately could not be done fully with push/pull classes
+        
+        .megaphone-container {
+            
+            text-align: center;
+            margin-top: rem-calc( map-get-deep( $header-sizes, 'medium', 'h2' ) + ( $small-padding / 2 ) );
+            
+        }
+        
+        .text-container {
+            
+            h1 {
+                //margin-top: rem-calc( map-get-deep( $header-sizes, 'medium', 'h2' ) - ( $small-padding / 7 ) );
+                font-size: rem-calc( map-get-deep( $header-sizes, 'medium', 'h2' ) * 1.25 );
+            }
+            
+        }
 
-    @media #{$medium-up} {
+        .button-container {
+
+            margin-top: rem-calc( map-get-deep( $header-sizes, 'medium', 'h2' ) + ( $small-padding * 5.75 ) );
+
+        }
+
+        .image-container {
+            
+            margin-top: - rem-calc( ( map-get-deep( $header-sizes, 'medium', 'h2' ) * 6.5 ) + ( $small-padding * 0.75 ) );
+            margin-bottom: 0;
+            padding: 0;
+            
+            img {
+                width: auto;
+                height: 50%;
+                float: right;
+            }
+
+        }
+        
+    }
+
+    @media #{$large-up} {
         
         text-align: left;
         position: relative;
