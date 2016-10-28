@@ -11,6 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
+// Load any post-type specific hooks, if they exist
+locate_template( '/includes/hooks/' . get_post_type() . '-hooks.php', true, true );
+
 get_header();
 
 the_post();

@@ -7,8 +7,11 @@
  * @subpackage  PatRobertson/partials/home
  */
 
+defined( 'ABSPATH' ) || die();
+
 $testimonials = new WP_Query( array(
     'post_type' => 'pat-testimonials',
+    'posts_per_page' => 4,
 ) );
 
 if ( $testimonials->have_posts() ) : ?>

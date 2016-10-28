@@ -7,6 +7,8 @@
  * @subpackage  PatRobertson/partials/home
  */
 
+defined( 'ABSPATH' ) || die();
+
 ?>
 
 <div class="pat-speaker row expanded">
@@ -25,7 +27,7 @@
 
     <div class="small-12 medium-3 medium-pull-7 columns button-container">
 
-        <a class="secondary large hollow button" href="<?php echo get_post_meta( get_the_ID(), '_rbm_path_home_speaker_button_link', true ); ?>">
+        <a class="secondary large hollow button" data-open="booking-modal">
             <?php echo get_post_meta( get_the_ID(), '_rbm_pat_home_speaker_button_text', true ); ?>
         </a>
 

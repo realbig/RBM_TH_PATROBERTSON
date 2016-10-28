@@ -9,6 +9,7 @@ Text Domain: pat-robertson
 */
 
 @import "foundation";
+@import "motion-ui";
 
 @import "settings";
 
@@ -27,6 +28,8 @@ Text Domain: pat-robertson
 @include foundation-dropdown-menu;
 @include foundation-visibility-classes;
 @include foundation-media-object;
+@include foundation-reveal;
+@include foundation-close-button;
 
 @import "mixins";
 

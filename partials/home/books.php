@@ -7,7 +7,9 @@
  * @subpackage  PatRobertson/partials/home
  */
 
-// Ensure Filters on the Permalink happen
+defined( 'ABSPATH' ) || die();
+
+// Load Books CPT Hooks if necessary
 locate_template( '/includes/hooks/pat-books-hooks.php', true, true );
 
 $site_url = get_bloginfo( 'url' );

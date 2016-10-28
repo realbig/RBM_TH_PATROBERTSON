@@ -14,6 +14,7 @@ javascript:
       - "bower_components/foundation-sites/js/foundation.offcanvas.js"
       - "bower_components/foundation-sites/js/foundation.util.timerAndImageLoader.js" #Not Documented, but needed for Equalizer
       - "bower_components/foundation-sites/js/foundation.equalizer.js"
+      - "bower_components/foundation-sites/js/foundation.reveal.js"
     # filename to output
     filename: "script.js"
     notification: "Running JavaScript"
@@ -46,6 +47,7 @@ sass:
     root: "."
     vendor:
       - "bower_components/foundation-sites/scss"
+      - "bower_components/motion-ui/src"
     filename: "style.css"
     notification: "Running Sass"
     src: "build/sass/main.scss"

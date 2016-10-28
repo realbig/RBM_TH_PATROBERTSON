@@ -1,0 +1,15 @@
+#booking-modal {
+    
+    &:focus {
+        outline: none;
+    }
+    
+    textarea {
+        height: 9em;
+    }
+    
+    .button {
+        margin-bottom: 0;
+    }
+    
+}

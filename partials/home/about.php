@@ -7,6 +7,8 @@
  * @subpackage  PatRobertson/partials/home
  */
 
+defined( 'ABSPATH' ) || die();
+
 ?>
 
 <div class="pat-about row expanded" data-equalizer data-equalize-on="medium">

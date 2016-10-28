@@ -7,6 +7,8 @@
  * @subpackage  PatRobertson/partials/home
  */
 
+defined( 'ABSPATH' ) || die();
+
 // Just in case there are any Hooks for Post
 locate_template( '/includes/hooks/post-hooks.php', true, true );
 

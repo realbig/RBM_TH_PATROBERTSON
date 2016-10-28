@@ -150,15 +150,20 @@ function pat_home_speaker_metabox_content() {
         )
     );
     
-    rbm_do_field_text(
-        'pat_home_speaker_button_link',
-        _x( 'Button Link', 'Home Speaker Button Link Label', THEME_ID ),
+    $contact_forms_query = get_posts( array(
+        'post_type' => 'wpcf7_contact_form',
+        'posts_per_page' => -1,
+    ) );
+    
+    $contact_forms = wp_list_pluck( $contact_forms_query, 'post_title', 'ID' );
+    
+    rbm_do_field_select(
+        'pat_home_speaker_contact_form',
+        _x( 'Booking Form', 'Home Speaker Button Link Label', THEME_ID ),
         false,
         array(
-            'default' => _x( '#', 'Default Home Speaker Button Link', THEME_ID ),
-            'input_atts' => array(
-                'placeholder' => _x( 'http://', 'Home Speaker Button Link Placeholder', THEME_ID ),
-            ),
+            'description' => __( 'Choose the Contact Form through which Visitors will Book you through.', THEME_ID ),
+            'options' => $contact_forms,
         )
     );
     
