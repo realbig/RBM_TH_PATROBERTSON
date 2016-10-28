@@ -39,6 +39,9 @@ else {
 
 require_once __DIR__ . '/post-types/post.php';
 
+require_once __DIR__ . '/tinymce/localization.php';
+require_once __DIR__ . '/tinymce/pat-button-shortcode.php';
+
 function pat_rbm_cpts_inactive() { ?>
     
     <div class="error">

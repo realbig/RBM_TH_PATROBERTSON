@@ -163,6 +163,9 @@ add_action( 'after_setup_theme', function () {
     
     // Add theme functions
     require_once __DIR__ . '/includes/theme-functions.php';
+    
+    // Add Button Shortcode
+    require_once __DIR__ . '/includes/shortcodes/pat-button.php';
 
     // Nav Walker for Foundation
     require_once __DIR__ . '/includes/class-foundation-nav-walker.php';
@@ -278,5 +281,6 @@ function pat_archive_title_filter( $title ) {
     return trim( str_replace( 'Archives:', '', $title ) );
     
 }
-    
+
+// Add Admin-specific Files
 require_once __DIR__ . '/admin/admin.php';
