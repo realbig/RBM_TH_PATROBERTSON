@@ -1,4 +1,17 @@
 <?php
+/**
+ * Adds the [pat_button] shortcode
+ *
+ * @since   1.0.0
+ * @package PatRobertson
+ * @subpackage  PatRobertson/includes/customizer
+ */
+
+// Don't load directly
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
+
 class Text_Editor_Custom_Control extends WP_Customize_Control {
 
     public $type = 'textarea';

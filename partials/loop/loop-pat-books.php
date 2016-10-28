@@ -29,13 +29,9 @@ if ( have_posts() ) : ?>
 
                             <div class="media-object-section">
                                 <div class="thumbnail">
-                                    <?php if ( strpos( $permalink, $site_url ) === false ) : ?>
-                                        <a href="<?php the_permalink(); ?>" target="_blank" title="<?php printf( _x( 'Buy %s on Amazon', 'Buy On Amazon Image Title', THEME_ID ), get_the_title() ); ?>">
-                                    <?php else : ?>
-                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                                    <?php endif; ?>
-                                            <?php the_post_thumbnail( 'medium' ); ?>
-                                        </a>
+                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                        <?php the_post_thumbnail( 'medium' ); ?>
+                                    </a>
                                 </div>
                             </div>
 
@@ -59,15 +55,9 @@ if ( have_posts() ) : ?>
 
                             <?php the_excerpt(); ?>
 
-                            <?php if ( strpos( $permalink, $site_url ) === false ) : ?>
-                                <a href="<?php the_permalink(); ?>" class="button primary" target="_blank">
-                                    <?php echo _x( 'Buy on Amazon', 'Amazon Link Text', THEME_ID ); ?>
-                                </a>
-                            <?php else : ?>
-                                <a href="<?php the_permalink(); ?>" class="button primary">
-                                    <?php echo _x( 'Read More', 'Read More Text', THEME_ID ); ?>
-                                </a>
-                            <?php endif; ?>
+                            <a href="<?php the_permalink(); ?>" class="button primary">
+                                <?php echo _x( 'Read More', 'Read More Text', THEME_ID ); ?>
+                            </a>
 
                         </div>
 

@@ -4,6 +4,7 @@
  *
  * @since   1.0.0
  * @package PatRobertson
+ * @subpackage  PatRobertson/admin/tinymce
  */
 
 // Don't load directly

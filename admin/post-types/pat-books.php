@@ -4,6 +4,7 @@
  *
  * @since   1.0.0
  * @package PatRobertson
+ * @subpackage  PatRobertson/admin/post-types
  */
 
 // Don't load directly
@@ -48,36 +49,3 @@ class RBM_CPT_Pat_Books extends RBM_CPT {
 }
 
 $pat_books = new RBM_CPT_Pat_Books();
-
-
-
-/**
- * Force 404 on Single Templates that should be redirecting to Amazon
- * This cannot go in the Hooks File as it loads within the Template itself, by then it is too late
- * 
- * @param       string $template Path to Template File
- *                                                
- * @since       1.0.0
- * @return      string Modified Template File Path
- */
-function pat_books_force_404( $template ) {
-    
-    global $wp_query;
-    global $post;
-    
-    if ( is_single() && get_post_type() == 'pat-books' ) {
-        
-        if ( $amazon_link = get_post_meta( $post->ID, '_rbm_pat_books_amazon_link', true ) ) {
-            
-            $wp_query->set_404();
-            
-            return get_query_template( '404' );
-            
-        }
-        
-    }
-    
-    return $template;
-    
-}
-add_filter( 'template_include', 'pat_books_force_404' );

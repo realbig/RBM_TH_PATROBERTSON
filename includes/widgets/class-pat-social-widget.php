@@ -1,4 +1,16 @@
 <?php
+/**
+ * Adds the [pat_button] shortcode
+ *
+ * @since   1.0.0
+ * @package PatRobertson
+ * @subpackage  PatRobertson/includes/widgets
+ */
+
+// Don't load directly
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
 
 class Pat_Social_Widget extends WP_Widget {
 
