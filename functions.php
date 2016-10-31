@@ -120,6 +120,13 @@ add_action( 'widgets_init', function () {
     	'id' => 'sidebar-main',
     	'description' => 'Displays on Interior Pages.',
     ) );
+    
+    // Newsletter Sidebar
+    register_sidebar( array(
+    	'name' => 'Newsletter',
+    	'id' => 'sidebar-newsletter',
+    	'description' => 'Displays the Newsletter Signup Form.',
+    ) );
 
     // Footer left
     register_sidebar( array(

@@ -20,6 +20,8 @@ the_post();
 
 locate_template( 'partials/home/books.php', true );
 
+locate_template( 'partials/home/newsletter.php', true );
+
 locate_template( 'partials/home/about.php', true );
 
 locate_template( 'partials/home/blog.php', true );

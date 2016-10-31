@@ -1,0 +1,72 @@
+.pat-newsletter {
+    
+    @each $breakpoint, $gutter in $grid-column-gutter {
+        $padding: rem-calc($gutter) / 2;
+
+        @include breakpoint($breakpoint) {
+
+            padding: $padding 0 ( $padding * 4 ) 0;
+
+        }
+
+    }
+    
+    .widget_mailchimpsf_widget {
+        
+        .widgettitle {
+            color: $body-font-color;
+        }
+        
+        .mc_merge_var {
+            
+            @include grid_column( 8 );
+            
+            background-color: $white;
+            border: 3px solid $medium-gray;
+            
+            label {
+                
+                text-transform: uppercase;
+                color: $medium-gray;
+                font-weight: bold;
+                
+                margin-top: 0.5em;
+                margin-bottom: 0;
+                
+            }
+            
+            input, input:focus {
+                
+                // Allow the Input to blend in
+                border: none;
+                outline: none;
+                box-shadow: none;
+                
+                font-weight: bold;
+                
+                padding-left: 0;
+                margin-bottom: 0.5em;
+                
+            }
+            
+        }
+        
+        .mc_signup_submit {
+            
+            @include grid_column( 4 );
+            
+            input[type="submit"] {
+                
+                padding: 1.5em;
+                margin-top: 0 !important;
+                
+                font-size: 1.25rem;
+                font-weight: bold;
+                
+            }
+            
+        }
+        
+    }
+    
+}
