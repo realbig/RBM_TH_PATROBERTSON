@@ -68,6 +68,20 @@
         }
         
     }
+    
+    // iPads, man
+    @media #{$medium-only} {
+        
+        .image-container {
+            
+            img {
+                width: 180%;
+                right: -12.5em;
+            }
+            
+        }
+        
+    }
 
     @media #{$small-only} {
 
