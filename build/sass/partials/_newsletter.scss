@@ -13,13 +13,16 @@
     
     .widget_mailchimpsf_widget {
         
+        display: inline-block;
+        width: 100%;
+        
         .widgettitle {
             color: $body-font-color;
         }
         
         .mc_merge_var {
             
-            @include grid_column( 8 );
+            @include grid_column( 12 );
             
             background-color: $white;
             border: 3px solid $medium-gray;
@@ -53,16 +56,30 @@
         
         .mc_signup_submit {
             
-            @include grid_column( 4 );
+            @include grid_column( 12 );
+            padding: 0;
             
             input[type="submit"] {
                 
                 padding: 1.5em;
                 margin-top: 0 !important;
+                width: 100% !important;
                 
                 font-size: 1.25rem;
                 font-weight: bold;
                 
+            }
+            
+        }
+        
+        @media #{$medium-up} {
+            
+            .mc_merge_var {
+                @include grid_column( 8 );
+            }
+            
+            .mc_signup_submit {
+                @include grid_column( 4 );
             }
             
         }

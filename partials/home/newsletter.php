@@ -24,16 +24,6 @@ defined( 'ABSPATH' ) || die();
             </div>
             
         </div>
-        
-        <div class="row">
-            
-            <div class="small-12 medium-10 medium-offset-1 columns">
-                
-                <?php _e( 'Sign up now to receive a free copy of <em>Dancing on a High Wire!</em>', THEME_ID ); ?>
-            
-            </div>
-        
-        </div>
 
     </div>
 
