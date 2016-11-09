@@ -69,6 +69,14 @@
         
     }
     
+    @media #{$large-up} {
+        
+        .text-container {
+            padding: ( $medium-padding * 3.7333 ) 0 ( $medium-padding * 3.7333 ) ( $medium-padding * 2.1333 );
+        }
+        
+    }
+    
     // iPads, man
     @media #{$medium-only} {
         
