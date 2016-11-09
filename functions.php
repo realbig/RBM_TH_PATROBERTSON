@@ -121,6 +121,13 @@ add_action( 'widgets_init', function () {
     	'description' => 'Displays on Interior Pages.',
     ) );
     
+    // About Page Sidebar
+    register_sidebar( array(
+    	'name' => 'About',
+    	'id' => 'sidebar-about',
+    	'description' => 'Displays the About Signup Form.',
+    ) );
+    
     // Newsletter Sidebar
     register_sidebar( array(
     	'name' => 'Newsletter',
