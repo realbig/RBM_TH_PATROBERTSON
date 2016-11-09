@@ -17,6 +17,8 @@ if ( class_exists( 'RBM_CPTS' ) ) {
     require_once __DIR__ . '/post-types/pat-books.php';
     require_once __DIR__ . '/post-types/pat-testimonials.php';
     
+    require_once __DIR__ . '/taxonomies/pat-book-categories.php';
+    
 }
 else {
     
