@@ -1,6 +1,6 @@
 <?php
 /**
- * Adds the [pat_button] shortcode
+ * Add Social Widget
  *
  * @since   1.0.0
  * @package PatRobertson
@@ -59,6 +59,20 @@ class Pat_Social_Widget extends WP_Widget {
 
         <?php endif;
         
+        if ( ! empty( $instance['twitter'] ) ) : ?>
+
+            <p>
+                <a href="<?php echo $instance['twitter']; ?>" target="_blank">
+                    
+                    <span class="fa-stack fa-2x">
+                        <span class="fa fa-twitter-square fa-stack-2x"></span>
+                    </span>
+                    
+                </a>
+            </p>
+
+        <?php endif;
+        
         if ( ! empty( $instance['email'] ) ) : ?>
 
             <p>
@@ -88,6 +102,7 @@ class Pat_Social_Widget extends WP_Widget {
     public function form( $instance ) {
         
         $facebook = ! empty( $instance['facebook'] ) ? $instance['facebook'] : '';
+        $twitter = ! empty( $instance['twitter'] ) ? $instance['twitter'] : '';
         $email = ! empty( $instance['email'] ) ? $instance['email'] : '';
         
         ?>
@@ -95,6 +110,11 @@ class Pat_Social_Widget extends WP_Widget {
         <p>
             <label for="<?php echo $this->get_field_id( 'facebook' ); ?>"><?php echo _x( 'Facebook URL:', 'Facebook Widget Label', THEME_ID ); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>" type="text" value="<?php echo esc_attr( $facebook ); ?>" />
+        </p>
+
+        <p>
+            <label for="<?php echo $this->get_field_id( 'twitter' ); ?>"><?php echo _x( 'Twitter URL:', 'Twitter Widget Label', THEME_ID ); ?></label> 
+            <input class="widefat" id="<?php echo $this->get_field_id( 'twitter' ); ?>" name="<?php echo $this->get_field_name( 'twitter' ); ?>" type="text" value="<?php echo esc_attr( $twitter ); ?>" />
         </p>
 
         <p>
@@ -119,6 +139,7 @@ class Pat_Social_Widget extends WP_Widget {
         
         $instance = array();
         $instance['facebook'] = ( ! empty( $new_instance['facebook'] ) ) ? strip_tags( $new_instance['facebook'] ) : '';
+        $instance['twitter'] = ( ! empty( $new_instance['twitter'] ) ) ? strip_tags( $new_instance['twitter'] ) : '';
         $instance['email'] = ( ! empty( $new_instance['email'] ) ) ? strip_tags( $new_instance['email'] ) : '';
 
         return $instance;
