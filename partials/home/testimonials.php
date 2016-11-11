@@ -14,6 +14,18 @@ $testimonials = new WP_Query( array(
     'posts_per_page' => 4,
 ) );
 
+$testimonials_count = count( $testimonials->posts );
+
+if ( $testimonials_count == 1 ) {
+    $medium_class = 'medium-12';
+}
+else if ( $testimonials_count == 3 ) {
+    $medium_class = 'medium-4';
+}
+else {
+    $medium_class = 'medium-6';
+}
+
 if ( $testimonials->have_posts() ) : ?>
 
     <div class="pat-testimonials row expanded">
@@ -24,7 +36,7 @@ if ( $testimonials->have_posts() ) : ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class( array(
             'columns',
             'small-12',
-            'medium-6',
+            $medium_class,
         ) ); ?>>
 
             <div class="media-object stack-for-small">
