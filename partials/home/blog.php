@@ -12,10 +12,16 @@ defined( 'ABSPATH' ) || die();
 // Just in case there are any Hooks for Post
 locate_template( '/includes/hooks/post-hooks.php', true, true );
 
+$left_blog_category = get_post_meta( get_the_ID(), '_rbm_pat_home_blog_left', true );
+$right_blog_category = get_post_meta( get_the_ID(), '_rbm_pat_home_blog_right', true );
+
+$left_blog_category = ( $left_blog_category ) ? $left_blog_category : 'on-life-and-writing';
+$right_blog_category = ( $right_blog_category ) ? $right_blog_category : 'psalms';
+
 // Use Category Slug
 $categories = apply_filters( 'pat-home-blog-categories', array(
-    'on-life-and-writing',
-    'psalms',
+    $left_blog_category,
+    $right_blog_category,
 ) );
 
 // Only used for each Category Loop, not for the Post Loops

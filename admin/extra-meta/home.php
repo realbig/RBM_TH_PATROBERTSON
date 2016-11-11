@@ -79,6 +79,14 @@ function pat_add_home_metaboxes() {
             'normal'
         );
         
+        add_meta_box(
+            'pat-home-blog',
+            _x( 'Blog Section', 'Home Blog Metabox Title', THEME_ID ),
+            'pat_home_blog_metabox_content',
+            'page',
+            'normal'
+        );
+        
     }
     
 }
@@ -177,6 +185,40 @@ function pat_home_speaker_metabox_content() {
             'button_remove_text' => _x( 'Remove Image', 'Home Speaker Image Remove Button Text', THEME_ID ),
             'window_title' => _x( 'Choose Image', 'Home Speaker Image Window Title', THEME_ID ),
             'window_button_text' => _x( 'Use Image', 'Home Speaker Image Select Button Text', THEME_ID ),
+        )
+    );
+    
+}
+
+/**
+ * Put fields in the Blog Metabox
+ * 
+ * @since       1.0.0
+ * @return      void
+ */
+function pat_home_blog_metabox_content() {
+    
+    $blog_categories_query = get_categories();
+    
+    $blog_categories = wp_list_pluck( $blog_categories_query, 'name', 'slug' );
+    
+    rbm_do_field_select(
+        'pat_home_blog_left',
+        _x( 'Left Blog Category', 'Home Left Blog Category Label', THEME_ID ),
+        false,
+        array(
+            'description' => __( 'Choose the Category You Want to Show on the Left Side', THEME_ID ),
+            'options' => $blog_categories,
+        )
+    );
+    
+    rbm_do_field_select(
+        'pat_home_blog_right',
+        _x( 'Right Blog Category', 'Home Right Blog Category Label', THEME_ID ),
+        false,
+        array(
+            'description' => __( 'Choose the Category You Want to Show on the Right Side', THEME_ID ),
+            'options' => $blog_categories,
         )
     );
     
