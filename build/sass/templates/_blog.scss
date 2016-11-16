@@ -1,0 +1,32 @@
+.blog, .category, .tag {
+    
+    .media-object {
+        
+        .media-object-section {
+            
+            &.image-section {
+                
+                @each $breakpoint, $gutter in $grid-column-gutter {
+                    $padding: rem-calc($gutter);
+
+                    @include breakpoint($breakpoint) {
+
+                        min-width: $padding * 10;
+                        max-width: $padding * 10;
+
+                    }
+
+                }
+                
+                * {
+                    display: block;
+                    width: 100%;
+                }
+            
+            }
+            
+        }
+        
+    }
+    
+}

@@ -22,17 +22,17 @@ if ( have_posts() ) : ?>
 
                     <div class="media-object stack-for-small">
 
-                        <?php if ( has_post_thumbnail() ) : ?>
+                        <div class="media-object-section image-section">
 
-                            <div class="media-object-section">
+                            <?php if ( has_post_thumbnail() ) : ?>
                                 <div class="thumbnail">
                                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                         <?php the_post_thumbnail( 'medium' ); ?>
                                     </a>
                                 </div>
-                            </div>
-
-                        <?php endif; ?>
+                            <?php endif; ?>
+                            
+                        </div>
 
                         <div class="media-object-section main-section">
 
