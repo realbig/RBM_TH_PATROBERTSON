@@ -18,6 +18,8 @@ get_header();
 
 the_post();
 
+locate_template( 'partials/home/top-section.php', true );
+
 locate_template( 'partials/home/books.php', true );
 
 locate_template( 'partials/home/newsletter.php', true );

@@ -62,6 +62,14 @@ function pat_remove_home_metaboxes() {
 function pat_add_home_metaboxes() {
     
     if ( is_admin() && isset( $_REQUEST['post'] ) && $_REQUEST['post'] == get_option( 'page_on_front' ) ) {
+		
+		add_meta_box(
+            'pat-home-top',
+            _x( 'Top Section', 'Home Top Metabox Title', THEME_ID ),
+            'pat_home_top_metabox_content',
+            'page',
+            'normal'
+        );
 
         add_meta_box(
             'pat-home-about',
@@ -88,6 +96,59 @@ function pat_add_home_metaboxes() {
         );
         
     }
+    
+}
+
+/**
+ * Put fields in the Top Metabox
+ * 
+ * @since       1.0.0
+ * @return      void
+ */
+function pat_home_top_metabox_content() {
+    
+    rbm_do_field_text(
+        'pat_home_top_title',
+        _x( 'Title', 'Home Top Title', THEME_ID ),
+        false,
+        array(
+            'default' => _x( 'Free Audio Books!', 'Default Home Top Title Text', THEME_ID ),
+        )
+    );
+    
+    rbm_do_field_media(
+        'pat_home_top_image',
+        _x( 'Image', 'Home Top Image Label', THEME_ID ),
+        false,
+        array(
+            'type' => 'image',
+            'button_text' => _x( 'Upload/Choose Image', 'Home Top Image Upload Button Text', THEME_ID ),
+            'button_remove_text' => _x( 'Remove Image', 'Home Top Image Remove Button Text', THEME_ID ),
+            'window_title' => _x( 'Choose Image', 'Home Top Image Window Title', THEME_ID ),
+            'window_button_text' => _x( 'Use Image', 'Home Top Image Select Button Text', THEME_ID ),
+        )
+    );
+    
+    rbm_do_field_wysiwyg(
+        'pat_home_top_text',
+        _x( 'Content', 'Home Top Content', THEME_ID ),
+        false,
+        array(
+            'default' => _x( 'NOW AVAILABLE IN AUDIO!  <em>LAND OF DEEP WATERS </em>and <em>DREAMWEAVERS!</em>
+
+<a href="http://patriciamrobertson.com/books/land-of-deep-waters/"><em>Land of Deep Waters</em></a> -Honduras, land of deep waters, a country torn apart by civil unrest, violence and poverty: Is it possible to go back? Thirty years after being banned from Honduras as a young nun, Joan, now married with two grown sons, finds herself haunted by memories of her four years there. She is determined to return, but how, and if so what will she find?
+
+<em><a href="http://patriciamrobertson.com/books/dreamweavers/">Dreamweavers</a> -</em> Kate, a single mom, sends her teenage daughter, Terri, off to spend the summer with her father in California, thereby freeing Kate for adventures of her own. Now it is time to follow her dreams, but where to begin?
+
+Along with <a href="http://patriciamrobertson.com/books/magnificent-failure/"><em>Magnificent Failure</em></a>, <a href="http://patriciamrobertson.com/books/land-of-deep-waters/"><em>Land of Deep Waters</em></a> and <a href="http://patriciamrobertson.com/books/dreamweavers/"><em>Dreamweavers</em></a>, are now available in audio.
+
+Coming Soon - the audio version of <em><a href="http://patriciamrobertson.com/books/still-dancing/">Still Dancing</a>.</em>
+
+<strong>Thank you for visiting this website. Interested in receiving a free audio book?</strong> Sign up for my newsletter then email me, patricia@patriciamrobertson, and let me know which one you want. There are a limited number available to subscribers to my newsletter.
+
+Also Coming Soon - <em><a href="http://patriciamrobertson.com/books/coming-soon-walking-with-families-through-grief/">Walking with Families through Grief</a>, </em>a companion to <em><a href="http://patriciamrobertson.com/books/walking-with-families-through-the-dying-process/">Walking with Families through the Dying Process</a></em>. Valuable resources for families, counselors, ministers and lay ministers.', THEME_ID ),
+        )
+    );
     
 }
 
