@@ -1,14 +1,20 @@
-.pat-books {
+.pat-top {
     
     // Base Padding on Column Gutters for a consistent feel
     $small-padding: map-get( $grid-column-gutter, 'small' );
     $medium-padding: map-get( $grid-column-gutter, 'medium' );
 
-    padding: $small-padding;
+    &, .page {
+		
+		padding: $small-padding;
 
-    @media #{$medium-up} {
-        padding: $medium-padding;
-    }
+		@media #{$medium-up} {
+			padding: $medium-padding;
+		}
+		
+	}
+	
+	padding-bottom: 0 !important;
     
     h1, h2, h3, h4, h5, h6 {
         
@@ -17,18 +23,20 @@
         color: $body-font-color;
         
     }
+	
+	h3.post-title {
+		color: $primary-color;
+	}
     
-    .bottom-row {
+    .top-row {
         
-        text-align: center;
-        
-        img {
-            width: 100%;
-            height: auto;
-        }
-        
-        .button {
-            margin-top: 1em;
+        .medium-4 {
+            
+            img {
+                width: 100%;
+                height: auto;
+            }
+            
         }
         
     }
